@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PerpTropica — Fee-Free Perp DEX</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+html, body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#00121a; color:#e6f7ff; scroll-behavior:smooth; }
+body { background: linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%); min-height:100vh; }
+a { color:#6ee7b7; text-decoration:none; }
+nav { display:flex; justify-content:center; padding:20px; background: rgba(0,0,0,0.35); position:fixed; top:0; width:100%; z-index:100; box-shadow:0 4px 30px rgba(0,0,0,0.5);}
+nav a { margin:0 12px; font-weight:600; transition:0.2s; }
+nav a:hover { color:#60a5fa; }
+.container { max-width:1200px; margin:100px auto 60px; padding:0 20px; }
+.hero { text-align:center; margin-bottom:50px; }
+.hero h1 { font-size:48px; line-height:1.1; color:#fff; text-shadow: 0 4px 30px rgba(6,182,183,0.15);}
+.hero span { color:#6ee7b7; font-weight:800; }
+.top-buttons { display:flex; justify-content:center; gap:20px; margin-top:20px; }
+.button { padding:12px 20px; border-radius:12px; font-weight:700; border:none; cursor:pointer; background:linear-gradient(90deg,#6ee7b7,#60a5fa); color:#012; box-shadow:0 8px 30px rgba(96,165,250,0.15); transition:0.2s;}
+.button:hover { transform:translateY(-2px); }
+.profile-icon { width:48px; height:48px; border-radius:50%; background:#6ee7b7; display:inline-block; margin-left:12px; box-shadow:0 4px 20px rgba(0,255,200,0.3); cursor:pointer; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:24px; margin-top:40px; }
+.card { background: rgba(255,255,255,0.03); border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.6); text-align:center; transition:0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow:0 12px 40px rgba(0,0,0,0.7);}
+.card img { width:100%; height:200px; object-fit:cover; }
+.card h3 { margin:16px 0 8px; font-size:20px; }
+.card p { padding:0 12px 16px; font-size:14px; line-height:1.5; color:rgba(230,247,255,0.87);}
+footer { text-align:center; padding:40px 20px; border-top:1px solid rgba(255,255,255,0.03); margin-top:40px; }
+iframe { border:0; width:100%; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.6); }
+.section-content { margin-top:20px; line-height:1.7; color:rgba(230,247,255,0.87); font-size:15px; }
+h2 { font-size:32px; margin-bottom:16px; }
+.back { margin-bottom:16px; display:inline-block; font-weight:600; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#zerofees">Zero Fees</a>
+  <a href="#token">Token</a>
+  <a href="#chart">Live Chart</a>
+  <a href="#about">About</a>
+  <a href="https://x.com/PerpTropica" target="_blank">Twitter</a>
+</nav>
+
+<!-- Home Page -->
+<div class="container" id="home">
+  <div class="hero">
+    <h1>PerpTropica<br><span>Trade freely. Live tropically.</span></h1>
+    <div class="top-buttons">
+      <button class="button" onclick="alert('Coming soon — wallet connection will be live in a future release.')">Connect Wallet 🌴</button>
+      <div class="profile-icon" title="Profile (Coming Soon)"></div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <img src="https://placehold.co/400x200/tropical/green?text=Perpetuals" alt="Perpetuals">
+        <h3>Perpetuals</h3>
+        <p>Trade tokens with zero fees using $TROPIC-backed perpetual engine for high-performance strategies.</p>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/400x200/tropical/blue?text=Trenches" alt="Trenches">
+        <h3>Trenches</h3>
+        <p>Engage with deep DeFi mechanics and community-first governance for active participants.</p>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/400x200/tropical/purple?text=Rewards" alt="Rewards">
+        <h3>Rewards</h3>
+        <p>Weekly $TROPIC airdrops incentivize traders and liquidity providers, keeping trades fee-free.</p>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/400x200/tropical/orange?text=Airdrop" alt="Airdrop">
+        <h3>Airdrop</h3>
+        <p>Automatically fund fee wallets via FeeReimburser contracts for seamless trading.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Zero Fees Page -->
+<div class="container" id="zerofees">
+  <a class="back" href="#home">← Back to Home</a>
+  <h2>How Zero Fees Work</h2>
+  <div class="section-content">
+    <p>PerpTropica removes trading fees using on-chain FeeReimburser contracts and off-chain relayers. Users sign trades; relayers execute and are reimbursed in $TROPIC from fee wallets funded weekly. Traders focus on strategy, not fees.</p>
+    <img src="https://placehold.co/900x300/tropical/green?text=Zero+Fees+Diagram" alt="Zero Fees Diagram">
+  </div>
+</div>
+
+<!-- Token Page -->
+<div class="container" id="token">
+  <a class="back" href="#home">← Back to Home</a>
+  <h2>Token — $TROPIC</h2>
+  <div class="section-content">
+    <p>$TROPIC powers fee reimbursement, governance, staking, and ecosystem incentives. Weekly airdrops reward active users; governance votes adjust emission rates and free trade caps.</p>
+    <img src="https://placehold.co/900x300/tropical/blue?text=Tokenomics+Chart" alt="Tokenomics Chart">
+  </div>
+</div>
+
+<!-- Live Chart Page -->
+<div class="container" id="chart">
+  <a class="back" href="#home">← Back to Home</a>
+  <h2>Live Chart</h2>
+  <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" height="600" title="Live Chart"></iframe>
+  <div class="section-content">
+    <p>View real-time market activity of $TROPIC. Future updates include analytics, open interest, and wallet-level airdrop stats.</p>
+  </div>
+</div>
+
+<!-- About Page -->
+<div class="container" id="about">
+  <a class="back" href="#home">← Back to Home</a>
+  <h2>About PerpTropica</h2>
+  <div class="section-content">
+    <p>PerpTropica is a decentralized fee-free perpetual DEX blending meme coin culture with advanced derivatives. Roadmap includes audits, bug bounties, and progressive DAO governance.</p>
+    <img src="https://placehold.co/900x300/tropical/purple?text=Team+and+Community" alt="Team & Community">
+  </div>
+</div>
+
+<footer>
+  © 2025 PerpTropica — Fee-Free Perp DEX
+</footer>
+
+</body>
+</html>
