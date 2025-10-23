@@ -7,6 +7,20 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 <style>
+<style>
+.github-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.github-icon:hover {
+  transform: scale(1.2);
+  color: #10b981; /* bright tropical green glow */
+}
+
+footer a:hover {
+  text-shadow: 0 0 10px #10b981;
+}
+</style>
   :root{
     --bg-1:#050010;
     --bg-2:#0b1a2a;
@@ -278,9 +292,20 @@
     </div>
   </section>
 </main>
-<footer>
-  <div>🌴 PerpTropica — Trade freely. Live tropically.</div>
-  <div style="margin-top:12px;"><a href="https://x.com/PerpTropica" target="_blank" rel="noopener" style="color:var(--neon-teal);text-decoration:none;font-weight:700;">Follow on X</a></div>
+<footer style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px 0; color: #6ee7b7;">
+  <span>🌴 PerpTropica — Trade freely, live tropically.</span>
+
+  <!-- X (Twitter) link -->
+  <a href="https://x.com/PerpTropica" target="_blank" style="color:#6ee7b7; font-size:24px; text-decoration:none;">
+    ✖️
+  </a>
+
+  <!-- GitHub link -->
+  <a href="https://github.com/BigDevEnergy777/PerpTropica" target="_blank" style="color:#6ee7b7; text-decoration:none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="github-icon">
+      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.01c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.19 1.75 1.19 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18a10.9 10.9 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.35.78 1.05.78 2.13v3.15c0 .3.21.66.79.55A10.98 10.98 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"/>
+    </svg>
+  </a>
 </footer>
 <script>
 /* Reactive neon overlay responding to scroll position */
