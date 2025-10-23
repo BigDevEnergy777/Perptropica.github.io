@@ -167,111 +167,88 @@
   </div>
 </aside>
   </section>
-   <section class="ecosystem" id="ecosystem" aria-label="Ecosystem">
-  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">
-    Ecosystem Map
-  </h2>
+   <section id="ecosystem" class="section">
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:30px;">🔗 PerpTropica Ecosystem</h2>
 
-  <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
-    <defs>
-      <!-- Enhanced glow effect -->
-      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-        <feMerge>
-          <feMergeNode in="coloredBlur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-      <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="14" result="coloredBlur"/>
-        <feMerge>
-          <feMergeNode in="coloredBlur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
+  <div id="ecosystem-map" style="position:relative; width:100%; height:620px; background:radial-gradient(circle at center, #071629, #030b15); border-radius:20px; overflow:hidden;">
+    
+    <!-- SVG neon connection lines -->
+    <svg viewBox="0 0 800 600" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:100%; height:100%;">
+      <defs>
+        <linearGradient id="neonLine" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00ffff" />
+          <stop offset="100%" stop-color="#0077ff" />
+        </linearGradient>
+      </defs>
+
+      <g stroke="url(#neonLine)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8">
+        <!-- Curved neon lines (animated) -->
+        <path d="M400,300 Q550,200 650,300" class="neon-line" />
+        <path d="M400,300 Q520,380 600,450" class="neon-line" />
+        <path d="M400,300 Q400,480 400,550" class="neon-line" />
+        <path d="M400,300 Q280,380 200,450" class="neon-line" />
+        <path d="M400,300 Q150,300 100,300" class="neon-line" />
+        <path d="M400,300 Q280,220 200,150" class="neon-line" />
+        <path d="M400,300 Q400,120 400,50" class="neon-line" />
+        <path d="M400,300 Q520,220 600,150" class="neon-line" />
+      </g>
+    </svg>
 
     <!-- Center Node -->
-    <g>
-      <circle cx="600" cy="260" r="100" fill="#39ffe6" filter="url(#strongGlow)"></circle>
-      <text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif"
-            font-size="28" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
-    </g>
+    <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:220px; height:220px; border-radius:50%; background:linear-gradient(135deg,#00ffff,#0077ff); display:flex; align-items:center; justify-content:center; text-align:center; color:white; font-family:Poppins, sans-serif; font-weight:600; font-size:1.1rem; box-shadow:0 0 35px rgba(0,255,255,0.5);">
+      🔗<br>PerpTropica<br>Fee-Free Perp DEX
+    </div>
 
-    <!-- Connecting Lines -->
-    <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
-      <line x1="600" y1="260" x2="360" y2="120"></line>
-      <line x1="600" y1="260" x2="840" y2="120"></line>
-      <line x1="600" y1="260" x2="220" y2="320"></line>
-      <line x1="600" y1="260" x2="980" y2="320"></line>
-      <line x1="600" y1="260" x2="600" y2="40"></line>
-      <line x1="600" y1="260" x2="600" y2="500"></line>
-      <line x1="600" y1="260" x2="60" y2="260"></line>
-      <line x1="600" y1="260" x2="1140" y2="260"></line>
-    </g>
+    <!-- Outer Nodes -->
+    <div class="bubble-node" style="--x:250;--y:0;background:linear-gradient(135deg,#00ffa3,#0077ff);">Perpetuals</div>
+    <div class="bubble-node" style="--x:180;--y:180;background:linear-gradient(135deg,#00d4ff,#0080ff);">Trenches</div>
+    <div class="bubble-node" style="--x:0;--y:260;background:linear-gradient(135deg,#00ffcc,#0066ff);">Rewards</div>
+    <div class="bubble-node" style="--x:-180;--y:180;background:linear-gradient(135deg,#00e1ff,#0099ff);">Airdrops</div>
+    <div class="bubble-node" style="--x:-250;--y:0;background:linear-gradient(135deg,#00ffc8,#00aaff);">Community</div>
+    <div class="bubble-node" style="--x:-180;--y:-180;background:linear-gradient(135deg,#00ffff,#0088ff);">Analytics</div>
+    <div class="bubble-node" style="--x:0;--y:-260;background:linear-gradient(135deg,#00ffee,#00bbff);">Ecosystem</div>
+    <div class="bubble-node" style="--x:180;--y:-180;background:linear-gradient(135deg,#00ddff,#007bff);">Partners</div>
 
-    <!-- Nodes -->
-    <g class="node">
-      <circle cx="360" cy="120" r="50" fill="#60a5fa" filter="url(#glow)"></circle>
-      <text x="360" y="118" text-anchor="middle" font-size="20">📈</text>
-      <text x="360" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="14" fill="#00121a" font-weight="600">Perpetuals</text>
-    </g>
-
-    <g class="node">
-      <circle cx="840" cy="120" r="50" fill="#facc15" filter="url(#glow)"></circle>
-      <text x="840" y="118" text-anchor="middle" font-size="20">🪖</text>
-      <text x="840" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="14" fill="#00121a" font-weight="600">Trenches</text>
-    </g>
-
-    <g class="node">
-      <circle cx="220" cy="320" r="46" fill="#f472b6" filter="url(#glow)"></circle>
-      <text x="220" y="318" text-anchor="middle" font-size="20">🎁</text>
-      <text x="220" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="13" fill="#00121a" font-weight="600">Rewards</text>
-    </g>
-
-    <g class="node">
-      <circle cx="980" cy="320" r="46" fill="#a78bfa" filter="url(#glow)"></circle>
-      <text x="980" y="318" text-anchor="middle" font-size="20">🪂</text>
-      <text x="980" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="13" fill="#fff" font-weight="600">Airdrop</text>
-    </g>
-
-    <g class="node">
-      <circle cx="600" cy="40" r="40" fill="#34d399" filter="url(#glow)"></circle>
-      <text x="600" y="38" text-anchor="middle" font-size="18">📊</text>
-      <text x="600" y="58" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="12" fill="#00121a" font-weight="600">Live Chart</text>
-    </g>
-
-    <g class="node">
-      <circle cx="600" cy="500" r="40" fill="#f87171" filter="url(#glow)"></circle>
-      <text x="600" y="498" text-anchor="middle" font-size="18">💰</text>
-      <text x="600" y="518" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="12" fill="#fff" font-weight="600">Tokenomics</text>
-    </g>
-
-    <g class="node">
-      <circle cx="60" cy="260" r="34" fill="#38bdf8" filter="url(#glow)"></circle>
-      <text x="60" y="258" text-anchor="middle" font-size="16">⚖️</text>
-      <text x="60" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="11" fill="#00121a" font-weight="600">Governance</text>
-    </g>
-
-    <g class="node">
-      <circle cx="1140" cy="260" r="34" fill="#fcd34d" filter="url(#glow)"></circle>
-      <text x="1140" y="258" text-anchor="middle" font-size="16">🔗</text>
-      <text x="1140" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
-            font-size="11" fill="#00121a" font-weight="600">Wallets</text>
-    </g>
-  </svg>
-
-  <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
-    The <strong>PerpTropica Ecosystem</strong> connects perpetuals, trenches, rewards, airdrops, and tokenomics into a unified network of DeFi innovation.
   </div>
 </section>
+
+<style>
+  /* Bubble nodes */
+  .bubble-node {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px));
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 150px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+
+  .bubble-node:hover {
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(1.1);
+    box-shadow: 0 0 45px rgba(0, 255, 255, 0.7);
+  }
+
+  /* Neon line animation */
+  @keyframes neonPulse {
+    0% { stroke-opacity: 0.4; stroke-width: 1.5; }
+    50% { stroke-opacity: 0.9; stroke-width: 2.5; }
+    100% { stroke-opacity: 0.4; stroke-width: 1.5; }
+  }
+
+  .neon-line {
+    animation: neonPulse 3s infinite ease-in-out;
+  }
+</style>
   <!-- TOKEN -->
   <section class="content" id="token" aria-label="Token">
     <h2 style="font-family:Orbitron, monospace;color:var(--neon-teal);text-align:center;">$TROPIC — Token Utility</h2>
