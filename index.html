@@ -20,6 +20,20 @@
   /* reactive neon overlay */
   .neon-overlay{position:fixed;inset:0;pointer-events:none;mix-blend-mode:screen; background: radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(57,255,230,0.08), transparent 8%), radial-gradient(circle at calc(var(--gx,50%)+20%) calc(var(--gy,50%)+10%), rgba(255,110,199,0.06), transparent 12%); transition:background 120ms linear; z-index:0;}
   header {position:relative;top:20px;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:40;padding:10px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;backdrop-filter: blur(8px);box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+  /* Demo / Testnet alert in header */
+.header-alert {
+  flex: 1;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Orbitron", monospace;
+  color: #ff6ec7; /* neon pink */
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(255,110,199,0.2);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
   .brand {display:flex;align-items:center;gap:12px;}
   .brand .logo {font-family:"Orbitron", monospace;color:var(--neon-teal);font-weight:800;font-size:20px;letter-spacing:0.6px;}
   .brand .tag {font-size:12px;color:rgba(191,238,246,0.75);margin-top:2px;}
@@ -96,43 +110,43 @@
 <body>
 <!-- Reactive glow overlay that reacts to scroll -->
 <div class="neon-overlay" id="neonOverlay" aria-hidden="true"></div>
-<header id="topHeader">
+<header>
   <div class="brand">
     <div class="logo">PerpTropica</div>
     <div class="tag">Trade freely — live tropically</div>
   </div>
 
-  <div class="topright" aria-hidden="false">
-    <div class="icon-btn">
-      <span style="font-family:'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span>
-      <div class="icon-label">Connect Wallet (Coming Soon)</div>
-    </div>
+  <!-- Center attention banner -->
+  <div class="header-alert">
+    ⚠️ Currently on Testnet — Demo Version ⚠️
+  </div>
 
-    <div class="icon-btn">
+  <!-- Top-right navigation / icons -->
+  <div class="topright" aria-hidden="false">
+    <div class="icon-btn" aria-hidden="false">
+      <span style="font-family: 'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span>
+      <div class="icon-label">Connect Wallet (coming soon)</div>
+    </div>
+    <div class="icon-btn" aria-hidden="false">
       <span style="font-size:18px;color:var(--neon-pink)">👤</span>
       <div class="icon-label">Profile</div>
     </div>
-
-    <div class="icon-btn">
+    <div class="icon-btn" aria-hidden="false">
       <span style="font-size:18px;color:var(--neon-teal)">Perps</span>
       <div class="icon-label">Perpetuals</div>
     </div>
-
-    <div class="icon-btn">
+    <div class="icon-btn" aria-hidden="false">
       <span style="font-size:18px;color:var(--neon-pink)">🪖</span>
       <div class="icon-label">Trenches</div>
     </div>
-
-    <div class="icon-btn">
+    <div class="icon-btn" aria-hidden="false">
       <span style="font-size:18px;color:var(--neon-teal)">🎁</span>
       <div class="icon-label">Rewards</div>
     </div>
-
-    <div class="icon-btn">
+    <div class="icon-btn" aria-hidden="false">
       <span style="font-size:18px;color:var(--neon-pink)">🪂</span>
       <div class="icon-label">Airdrop</div>
     </div>
-
     <a class="nav-link" href="https://x.com/PerpTropica" target="_blank" rel="noopener" title="X / PerpTropica">X</a>
   </div>
 </header>
