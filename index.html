@@ -96,54 +96,65 @@
 <body>
 <!-- Reactive glow overlay that reacts to scroll -->
 <div class="neon-overlay" id="neonOverlay" aria-hidden="true"></div>
-<header>
+<header id="topHeader">
   <div class="brand">
     <div class="logo">PerpTropica</div>
     <div class="tag">Trade freely — live tropically</div>
   </div>
 
-  <!-- Top-right icon navigation -->
   <div class="topright" aria-hidden="false">
-    <!-- Wallet (Coming Soon) -->
-    <div class="icon-btn" aria-hidden="false">
-      <span style="font-family: 'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span>
-      <div class="icon-label">Connect Wallet (coming soon)</div>
+    <div class="icon-btn">
+      <span style="font-family:'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span>
+      <div class="icon-label">Connect Wallet (Coming Soon)</div>
     </div>
 
-    <!-- Profile -->
-    <div class="icon-btn" aria-hidden="false">
+    <div class="icon-btn">
       <span style="font-size:18px;color:var(--neon-pink)">👤</span>
       <div class="icon-label">Profile</div>
     </div>
 
-    <!-- Perpetuals -->
-    <div class="icon-btn" aria-hidden="false">
+    <div class="icon-btn">
       <span style="font-size:18px;color:var(--neon-teal)">Perps</span>
       <div class="icon-label">Perpetuals</div>
     </div>
 
-    <!-- Trenches -->
-    <div class="icon-btn" aria-hidden="false">
+    <div class="icon-btn">
       <span style="font-size:18px;color:var(--neon-pink)">🪖</span>
       <div class="icon-label">Trenches</div>
     </div>
 
-    <!-- Rewards -->
-    <div class="icon-btn" aria-hidden="false">
+    <div class="icon-btn">
       <span style="font-size:18px;color:var(--neon-teal)">🎁</span>
       <div class="icon-label">Rewards</div>
     </div>
 
-    <!-- Airdrop -->
-    <div class="icon-btn" aria-hidden="false">
+    <div class="icon-btn">
       <span style="font-size:18px;color:var(--neon-pink)">🪂</span>
       <div class="icon-label">Airdrop</div>
     </div>
 
-    <!-- External link to X -->
     <a class="nav-link" href="https://x.com/PerpTropica" target="_blank" rel="noopener" title="X / PerpTropica">X</a>
   </div>
 </header>
+
+<script>
+// Hide header when scrolling down, show only at top
+(function(){
+  const header = document.getElementById('topHeader');
+  function updateHeaderVisibility() {
+    if(window.scrollY > 20){
+      header.style.transform = 'translateY(-120%)';
+      header.style.opacity = '0';
+    } else {
+      header.style.transform = 'translateY(0)';
+      header.style.opacity = '1';
+    }
+    header.style.transition = 'transform 0.25s ease, opacity 0.25s ease';
+  }
+  window.addEventListener('scroll', updateHeaderVisibility, {passive:true});
+  window.addEventListener('load', updateHeaderVisibility);
+})();
+</script>
 
 <main>
   <!-- HERO -->
