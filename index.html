@@ -174,8 +174,16 @@
 
   <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
     <defs>
+      <!-- Enhanced glow effect -->
       <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
         <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="14" result="coloredBlur"/>
         <feMerge>
           <feMergeNode in="coloredBlur"/>
           <feMergeNode in="SourceGraphic"/>
@@ -185,9 +193,9 @@
 
     <!-- Center Node -->
     <g>
-      <circle cx="600" cy="260" r="82" fill="#39ffe6" filter="url(#glow)"></circle>
+      <circle cx="600" cy="260" r="100" fill="#39ffe6" filter="url(#strongGlow)"></circle>
       <text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif"
-            font-size="18" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
+            font-size="28" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
     </g>
 
     <!-- Connecting Lines -->
@@ -202,58 +210,58 @@
       <line x1="600" y1="260" x2="1140" y2="260"></line>
     </g>
 
-    <!-- Nodes with emojis -->
+    <!-- Nodes -->
     <g class="node">
-      <circle cx="360" cy="120" r="50" fill="#60a5fa"></circle>
+      <circle cx="360" cy="120" r="50" fill="#60a5fa" filter="url(#glow)"></circle>
       <text x="360" y="118" text-anchor="middle" font-size="20">📈</text>
       <text x="360" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="14" fill="#00121a" font-weight="600">Perpetuals</text>
     </g>
 
     <g class="node">
-      <circle cx="840" cy="120" r="50" fill="#facc15"></circle>
+      <circle cx="840" cy="120" r="50" fill="#facc15" filter="url(#glow)"></circle>
       <text x="840" y="118" text-anchor="middle" font-size="20">🪖</text>
       <text x="840" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="14" fill="#00121a" font-weight="600">Trenches</text>
     </g>
 
     <g class="node">
-      <circle cx="220" cy="320" r="46" fill="#f472b6"></circle>
+      <circle cx="220" cy="320" r="46" fill="#f472b6" filter="url(#glow)"></circle>
       <text x="220" y="318" text-anchor="middle" font-size="20">🎁</text>
       <text x="220" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="13" fill="#00121a" font-weight="600">Rewards</text>
     </g>
 
     <g class="node">
-      <circle cx="980" cy="320" r="46" fill="#a78bfa"></circle>
+      <circle cx="980" cy="320" r="46" fill="#a78bfa" filter="url(#glow)"></circle>
       <text x="980" y="318" text-anchor="middle" font-size="20">🪂</text>
       <text x="980" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="13" fill="#fff" font-weight="600">Airdrop</text>
     </g>
 
     <g class="node">
-      <circle cx="600" cy="40" r="40" fill="#34d399"></circle>
+      <circle cx="600" cy="40" r="40" fill="#34d399" filter="url(#glow)"></circle>
       <text x="600" y="38" text-anchor="middle" font-size="18">📊</text>
       <text x="600" y="58" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="12" fill="#00121a" font-weight="600">Live Chart</text>
     </g>
 
     <g class="node">
-      <circle cx="600" cy="500" r="40" fill="#f87171"></circle>
+      <circle cx="600" cy="500" r="40" fill="#f87171" filter="url(#glow)"></circle>
       <text x="600" y="498" text-anchor="middle" font-size="18">💰</text>
       <text x="600" y="518" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="12" fill="#fff" font-weight="600">Tokenomics</text>
     </g>
 
     <g class="node">
-      <circle cx="60" cy="260" r="34" fill="#38bdf8"></circle>
+      <circle cx="60" cy="260" r="34" fill="#38bdf8" filter="url(#glow)"></circle>
       <text x="60" y="258" text-anchor="middle" font-size="16">⚖️</text>
       <text x="60" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="11" fill="#00121a" font-weight="600">Governance</text>
     </g>
 
     <g class="node">
-      <circle cx="1140" cy="260" r="34" fill="#fcd34d"></circle>
+      <circle cx="1140" cy="260" r="34" fill="#fcd34d" filter="url(#glow)"></circle>
       <text x="1140" y="258" text-anchor="middle" font-size="16">🔗</text>
       <text x="1140" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
             font-size="11" fill="#00121a" font-weight="600">Wallets</text>
@@ -261,30 +269,9 @@
   </svg>
 
   <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
-    The bubble map represents the interconnected <strong>PerpTropica</strong> ecosystem.  
-    <br>
-    <br>📈 Perpetuals • 🪖 Trenches • 🎁 Rewards • 🪂 Airdrop • 📊 Live Chart • 💰 Tokenomics • ⚖️ Governance • 🔗 Wallets
+    The <strong>PerpTropica Ecosystem</strong> connects perpetuals, trenches, rewards, airdrops, and tokenomics into a unified network of DeFi innovation.
   </div>
 </section>
-  <!-- FEATURES / HOW ZERO FEES WORK -->
-  <section class="content" id="zero-fees" aria-label="Zero Fees">
-    <h2 style="font-family:Orbitron, monospace;color:var(--neon-pink);text-align:center;">How Zero Fees Work</h2>
-    <p style="max-width:920px;margin:0 auto;color:rgba(191,238,246,0.9);">PerpTropica replaces Sol fees with a reimbursement model. Weekly $TROPIC airdrops are directed into locked fee wallets which only exist to pay relayers who execute meta-transactions. When a trader submits a signed order, a relayer broadcasts it and later gets reimbursed in $TROPIC by the FeeReimburser contract. Governance controls emissions, the per-wallet free trade cap (default 15), and economic safety parameters. This design lets traders keep 100% of their gains while preserving on-chain transparency and auditability.</p>
-<div class="grid" style="margin-top:26px;">
-  <div class="feature">
-    <h3>Relayer Model</h3>
-    <p>Signed meta-transactions allow relayers to execute trades for users, removing gas friction from UX flows.</p>
-  </div>
-  <div class="feature">
-    <h3>Airdrop Funding</h3>
-    <p>Weekly scheduler deposits $TROPIC into fee wallets which can only be used for reimbursements.</p>
-  </div>
-  <div class="feature">
-    <h3>Governance Control</h3>
-    <p>Holders vote on emissions, free-trade caps, treasury allocation, and deflationary mechanics.</p>
-  </div>
-</div>
-  </section>
   <!-- TOKEN -->
   <section class="content" id="token" aria-label="Token">
     <h2 style="font-family:Orbitron, monospace;color:var(--neon-teal);text-align:center;">$TROPIC — Token Utility</h2>
