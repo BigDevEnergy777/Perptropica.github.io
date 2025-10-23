@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PerpTropica</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg,#00121a 0%,#032a36 50%,#063b52 100%);
+    color: #e6f7ff;
+    scroll-behavior: smooth;
+  }
+  header {
+    background: rgba(0,0,0,0.3);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  }
+  header nav a {
+    color: #e6f7ff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  header nav a:hover { color: #6ee7b7; }
+
+  header .icons button {
+    background: linear-gradient(90deg,#6ee7b7,#60a5fa);
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+  header .icons button:hover {
+    transform: scale(1.2) rotate(5deg);
+  }
+
+  main { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+  section {
+    margin-bottom: 80px;
+    padding: 30px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+  }
+  h1,h2 {
+    color: #6ee7b7;
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 1.6;
+    color: rgba(230,247,255,0.87);
+  }
+  .chart, .visual {
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  }
+  .visual img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  footer {
+    text-align:center;
+    padding:40px;
+    color:rgba(230,247,255,0.6);
+  }
+  footer a { color:#6ee7b7; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="icons">
+    <button title="Connect Wallet" onclick="alert('Coming soon — wallet connection!')">💳</button>
+    <button title="Profile">👤</button>
+    <button title="Perpetuals">⚡</button>
+    <button title="Trenches">🛡️</button>
+    <button title="Rewards">🎁</button>
+    <button title="Airdrop">🪂</button>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#zerofees">Zero Fees</a>
+    <a href="#token">Token</a>
+    <a href="#chart">Live Chart</a>
+    <a href="#about">About</a>
+    <a href="https://x.com/PerpTropica" target="_blank" title="Follow on X">❌</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <h1>🌴 PerpTropica</h1>
+    <p>Trade freely, live tropically! PerpTropica is a fee-free DeFi perpetuals trading platform with $TROPIC rewards, airdrops, and community governance.</p>
+    <div class="visual">
+      <img src="https://placehold.co/900x300?text=PerpTropica+Platform+Overview" alt="Platform Overview">
+    </div>
+  </section>
+
+  <section id="zerofees">
+    <h2>Zero Fees</h2>
+    <p>All trades are fee-free! $TROPIC covers execution costs, so traders keep 100% of gains. Airdrops and fee wallets make this possible transparently. ✅</p>
+    <div class="visual">
+      <img src="https://placehold.co/900x300?text=Zero+Fees+Mechanism" alt="Zero Fees Mechanism">
+    </div>
+  </section>
+
+  <section id="token">
+    <h2>$TROPIC Token</h2>
+    <p>$TROPIC powers fee reimbursement, governance, and rewards. Stake, vote, and claim weekly airdrops to maximize your trading experience! 🌟</p>
+    <div class="visual">
+      <img src="https://placehold.co/900x300?text=Tokenomics+Chart" alt="Tokenomics Chart">
+    </div>
+  </section>
+
+  <section id="chart">
+    <h2>Live Chart</h2>
+    <p>Track $TROPIC price and market activity in real-time below:</p>
+    <div class="chart">
+      <iframe title="PerpTropica Live Chart" src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" width="100%" height="600" style="border:0;"></iframe>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About PerpTropica</h2>
+    <p>PerpTropica is a community-first DeFi perpetual trading platform. It combines meme culture, fee-free trading, and governance into a modern experience. Our roadmap includes expanding features, integrating rewards, airdrops, and empowering users through $TROPIC governance. 🏝️</p>
+    <div class="visual">
+      <img src="https://placehold.co/900x300?text=Team+and+Community" alt="Team and Community">
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 PerpTropica — Fee-Free Perp DEX | <a href="https://x.com/PerpTropica" target="_blank">Follow us on X</a>
+</footer>
+
+</body>
+</html>
