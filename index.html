@@ -32,7 +32,7 @@ header .icon {
   border-radius: 50%;
   background: #0b6b7a;
   font-size: 20px;
-  cursor: default;
+  cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -91,17 +91,52 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.03);
   color: rgba(230,247,255,0.6);
 }
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+.popup-content {
+  background: #032a36;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align:center;
+  color: #6ee7b7;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+.popup-content button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  border:none;
+  border-radius:8px;
+  background: #6ee7b7;
+  color: #012;
+  font-weight:600;
+  cursor:pointer;
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="icon">🌴</div>
-  <div class="icon">👤</div>
-  <div class="icon">⚡</div>
-  <div class="icon">🪂</div>
-  <div class="icon">💎</div>
-  <div class="icon">🎁</div>
+  <div class="icon" onclick="showPopup()">🌴</div>
+  <div class="icon" onclick="showPopup()">👤</div>
+  <div class="icon" onclick="showPopup()">⚡</div>
+  <div class="icon" onclick="showPopup()">🪂</div>
+  <div class="icon" onclick="showPopup()">💎</div>
+  <div class="icon" onclick="showPopup()">🎁</div>
   <nav>
     <a href="#home">Home</a>
     <a href="#zerofees">Zero Fees</a>
@@ -117,16 +152,16 @@ footer {
 <section id="home">
   <h1>🌴 PerpTropica</h1>
   <h2>Trade freely. Live tropically.</h2>
-  <p>PerpTropica is the world's first fee-free decentralized exchange for meme coins and perpetual futures. All trading costs are fully covered by $TROPIC token airdrops!</p>
+  <p>PerpTropica is the world's first fee-free decentralized exchange for meme coins and perpetual futures. $TROPIC airdrops cover your trades — up to 15 free trades per wallet weekly.</p>
   <div class="card">
     <img src="https://placehold.co/900x300?text=PerpTropica+Hero" alt="PerpTropica Hero">
-    <p>Connect wallet and profile icons are on top. Features like perpetuals, trenches, rewards, and airdrops are represented by emojis in the top-right icons.</p>
+    <p>Top-right icons represent wallet, profile, perpetuals, trenches, rewards, and airdrops.</p>
   </div>
 </section>
 
 <section id="zerofees">
   <h2>💸 Zero Fees</h2>
-  <p>$TROPIC airdrops fund your trades weekly. Each wallet gets up to 15 free trades per week. Fees are automatically reimbursed by smart contracts, keeping 100% of your gains.</p>
+  <p>Trades are fee-free thanks to $TROPIC token reimbursement. Active wallets receive airdrops automatically. Fee wallets cover gas and platform costs — you keep 100% of gains.</p>
   <div class="card">
     <img src="https://placehold.co/900x300?text=Zero+Fees+Flow" alt="Zero Fees Flow">
   </div>
@@ -134,7 +169,7 @@ footer {
 
 <section id="token">
   <h2>🪂 $TROPIC Token</h2>
-  <p>The native SPL token fuels fee reimbursements, governance, and rewards. Weekly emissions are distributed to active wallets, with optional deflationary mechanics for sustainability.</p>
+  <p>The SPL token powers fee reimbursement, governance, and ecosystem rewards. Weekly airdrops and optional deflationary mechanics ensure sustainable usage.</p>
   <div class="card">
     <img src="https://placehold.co/900x300?text=Tropic+Tokenomics" alt="Tokenomics Chart">
   </div>
@@ -150,7 +185,8 @@ footer {
 
 <section id="about">
   <h2>👥 About PerpTropica</h2>
-  <p>PerpTropica is a community-first, experimental DeFi project enabling zero-fee trading with perpetual futures. Governance, airdrops, and fee reimbursement are powered by $TROPIC token.</p>
+  <p>PerpTropica is a community-first, experimental DeFi project enabling zero-fee trading with perpetual futures. $TROPIC powers governance, airdrops, and fee reimbursement.</p>
+  <p>The roadmap includes research, smart contract development, relayer infrastructure, frontend/testnet launch, audits, and mainnet deployment. Long-term vision: PerpTropica DAO governing emissions, partnerships, and ecosystem growth fully on-chain.</p>
   <div class="card">
     <img src="https://placehold.co/900x300?text=Team+%26+Community" alt="Team and Community">
     <p>Join the Tropics: <a href="https://x.com/PerpTropica" target="_blank">❎ X</a></p>
@@ -162,6 +198,23 @@ footer {
 <footer>
   &copy; 2025 PerpTropica — Trade freely, live tropically.
 </footer>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup-content">
+    <h3>Coming Soon!</h3>
+    <p>This feature is not live yet — stay tuned 🌴</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+function showPopup() {
+  document.getElementById('popup').classList.add('active');
+}
+function closePopup() {
+  document.getElementById('popup').classList.remove('active');
+}
+</script>
 
 </body>
 </html>
