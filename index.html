@@ -167,128 +167,105 @@
   </div>
 </aside>
   </section>
-    <!-- ECOSYSTEM BUBBLE MAP -->
-  <section class="ecosystem" id="ecosystem" aria-label="Ecosystem">
-    <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">
-      Ecosystem Map
-    </h2>
-    <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
-      <defs>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
+   <section class="ecosystem" id="ecosystem" aria-label="Ecosystem">
+  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">
+    Ecosystem Map
+  </h2>
 
-      <!-- Center Node -->
-      <g>
-        <circle cx="600" cy="260" r="78" fill="#39ffe6" filter="url(#glow)"></circle>
-        <text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif"
-              font-size="22" fill="#02121a" font-weight="800">PerpTropica</text>
-      </g>
+  <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
+    <defs>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
 
-      <!-- Connecting Lines with Emoji Pathways -->
-      <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
-        <line x1="600" y1="260" x2="360" y2="120"></line>
-        <text x="480" y="180" text-anchor="middle" font-size="18">📈</text>
+    <!-- Center Node -->
+    <g>
+      <circle cx="600" cy="260" r="78" fill="#39ffe6" filter="url(#glow)"></circle>
+      <text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif"
+            font-size="22" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
+    </g>
 
-        <line x1="600" y1="260" x2="840" y2="120"></line>
-        <text x="720" y="180" text-anchor="middle" font-size="18">🪖</text>
+    <!-- Connecting Lines -->
+    <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
+      <line x1="600" y1="260" x2="360" y2="120"></line>
+      <line x1="600" y1="260" x2="840" y2="120"></line>
+      <line x1="600" y1="260" x2="220" y2="320"></line>
+      <line x1="600" y1="260" x2="980" y2="320"></line>
+      <line x1="600" y1="260" x2="600" y2="40"></line>
+      <line x1="600" y1="260" x2="600" y2="500"></line>
+      <line x1="600" y1="260" x2="60" y2="260"></line>
+      <line x1="600" y1="260" x2="1140" y2="260"></line>
+    </g>
 
-        <line x1="600" y1="260" x2="220" y2="320"></line>
-        <text x="400" y="295" text-anchor="middle" font-size="18">🎁</text>
+    <!-- Nodes with emojis -->
+    <g class="node">
+      <circle cx="360" cy="120" r="50" fill="#60a5fa"></circle>
+      <text x="360" y="118" text-anchor="middle" font-size="20">📈</text>
+      <text x="360" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#00121a" font-weight="600">Perpetuals</text>
+    </g>
 
-        <line x1="600" y1="260" x2="980" y2="320"></line>
-        <text x="790" y="295" text-anchor="middle" font-size="18">🪂</text>
+    <g class="node">
+      <circle cx="840" cy="120" r="50" fill="#facc15"></circle>
+      <text x="840" y="118" text-anchor="middle" font-size="20">🪖</text>
+      <text x="840" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#00121a" font-weight="600">Trenches</text>
+    </g>
 
-        <line x1="600" y1="260" x2="600" y2="40"></line>
-        <text x="600" y="150" text-anchor="middle" font-size="18">📊</text>
+    <g class="node">
+      <circle cx="220" cy="320" r="46" fill="#f472b6"></circle>
+      <text x="220" y="318" text-anchor="middle" font-size="20">🎁</text>
+      <text x="220" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#00121a" font-weight="600">Rewards</text>
+    </g>
 
-        <line x1="600" y1="260" x2="600" y2="500"></line>
-        <text x="600" y="390" text-anchor="middle" font-size="18">💰</text>
+    <g class="node">
+      <circle cx="980" cy="320" r="46" fill="#a78bfa"></circle>
+      <text x="980" y="318" text-anchor="middle" font-size="20">🪂</text>
+      <text x="980" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#fff" font-weight="600">Airdrop</text>
+    </g>
 
-        <line x1="600" y1="260" x2="60" y2="260"></line>
-        <text x="330" y="255" text-anchor="middle" font-size="18">⚖️</text>
+    <g class="node">
+      <circle cx="600" cy="40" r="40" fill="#34d399"></circle>
+      <text x="600" y="38" text-anchor="middle" font-size="18">📊</text>
+      <text x="600" y="58" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#00121a" font-weight="600">Live Chart</text>
+    </g>
 
-        <line x1="600" y1="260" x2="1140" y2="260"></line>
-        <text x="870" y="255" text-anchor="middle" font-size="18">🔐</text>
-      </g>
+    <g class="node">
+      <circle cx="600" cy="500" r="40" fill="#f87171"></circle>
+      <text x="600" y="498" text-anchor="middle" font-size="18">💰</text>
+      <text x="600" y="518" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#fff" font-weight="600">Tokenomics</text>
+    </g>
 
-      <!-- Nodes -->
-      <g class="node">
-        <circle cx="360" cy="120" r="50" fill="#60a5fa" />
-        <text x="360" y="126" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="15" fill="#00121a" font-weight="600">
-          Perpetuals
-        </text>
-      </g>
+    <g class="node">
+      <circle cx="60" cy="260" r="34" fill="#38bdf8"></circle>
+      <text x="60" y="258" text-anchor="middle" font-size="16">⚖️</text>
+      <text x="60" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="11" fill="#00121a" font-weight="600">Governance</text>
+    </g>
 
-      <g class="node">
-        <circle cx="840" cy="120" r="50" fill="#facc15" />
-        <text x="840" y="126" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="15" fill="#00121a" font-weight="600">
-          Trenches
-        </text>
-      </g>
+    <g class="node">
+      <circle cx="1140" cy="260" r="34" fill="#fcd34d"></circle>
+      <text x="1140" y="258" text-anchor="middle" font-size="16">🔐</text>
+      <text x="1140" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="11" fill="#00121a" font-weight="600">Wallets</text>
+    </g>
+  </svg>
 
-      <g class="node">
-        <circle cx="220" cy="320" r="46" fill="#f472b6" />
-        <text x="220" y="326" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="14" fill="#00121a" font-weight="600">
-          Rewards
-        </text>
-      </g>
-
-      <g class="node">
-        <circle cx="980" cy="320" r="46" fill="#a78bfa" />
-        <text x="980" y="326" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="14" fill="#fff" font-weight="600">
-          Airdrop
-        </text>
-      </g>
-
-      <g class="node">
-        <circle cx="600" cy="40" r="40" fill="#34d399" />
-        <text x="600" y="46" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="13" fill="#00121a" font-weight="600">
-          Live Chart
-        </text>
-      </g>
-
-      <g class="node">
-        <circle cx="600" cy="500" r="40" fill="#f87171" />
-        <text x="600" y="506" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="13" fill="#fff" font-weight="600">
-          Tokenomics
-        </text>
-      </g>
-
-      <g class="node">
-        <circle cx="60" cy="260" r="34" fill="#38bdf8" />
-        <text x="60" y="266" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">
-          Governance
-        </text>
-      </g>
-
-      <g class="node">
-        <circle cx="1140" cy="260" r="34" fill="#fcd34d" />
-        <text x="1140" y="266" text-anchor="middle"
-              font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">
-          Wallets
-        </text>
-      </g>
-    </svg>
-
-    <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
-      The bubble map represents the interconnected <strong>PerpTropica</strong> ecosystem.  
-      <br>Each emoji represents the pathway between features:
-      <br>📈 Perpetuals • 🪖 Trenches • 🎁 Rewards • 🪂 Airdrops • 📊 Live Chart • 💰 Tokenomics • ⚖️ Governance • 🔐 Wallets
-    </div>
-  </section>
+  <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
+    The bubble map represents the interconnected <strong>PerpTropica</strong> ecosystem.  
+    <br>Each node now shows its emoji icon:
+    <br>📈 Perpetuals • 🪖 Trenches • 🎁 Rewards • 🪂 Airdrop • 📊 Live Chart • 💰 Tokenomics • ⚖️ Governance • 🔐 Wallets
+  </div>
+</section>
   <!-- FEATURES / HOW ZERO FEES WORK -->
   <section class="content" id="zero-fees" aria-label="Zero Fees">
     <h2 style="font-family:Orbitron, monospace;color:var(--neon-pink);text-align:center;">How Zero Fees Work</h2>
