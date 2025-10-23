@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerpTropica — Fee-Free Perp DEX</title>
+  <!-- React and ReactDOM via CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- React Router DOM via CDN -->
+  <script crossorigin src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.production.min.js"></script>
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    body, html { margin:0; padding:0; font-family: 'Inter', sans-serif; color:#e6f7ff; background:#00121a; }
+    a { color:#6ee7b7; text-decoration:none; }
+    button { cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/javascript">
+    const { BrowserRouter, Routes, Route, Link } = ReactRouterDOM;
+
+    const pageBackground = {
+      minHeight: '100vh',
+      margin: 0,
+      color: '#e6f7ff',
+      background: 'linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%)',
+      backgroundAttachment: 'fixed',
+      fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    };
+    const container = { maxWidth: 1200, margin: '0 auto', padding: '120px 20px 80px' };
+    const navLink = { color: 'rgba(230,247,255,0.95)', textDecoration: 'none', padding: '6px 10px', borderRadius: 8, fontSize: 14 };
+    const smallCard = { padding: '8px 12px', borderRadius: 10, background: 'rgba(255,255,255,0.03)', color: '#e6f7ff', textDecoration: 'none', fontWeight: 700 };
+
+    function Navbar() {
+      return (
+        React.createElement('div', { style: {position: 'fixed', top:0, left:0, right:0, zIndex:60, padding:'12px 20px', borderBottom:'1px solid rgba(255,255,255,0.04)', background:'linear-gradient(180deg, rgba(0,0,0,0.38), transparent)'} },
+          React.createElement('div', { style:{maxWidth:1200, margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between'} },
+            React.createElement(Link, { to:'/', style:{color:'#6ee7b7', fontWeight:800, fontSize:20, textDecoration:'none'} }, '🌴 PerpTropica'),
+            React.createElement('nav', { style:{display:'flex', gap:12, alignItems:'center'} },
+              React.createElement(Link, { to:'/', style:navLink }, 'Home'),
+              React.createElement(Link, { to:'/zerofees', style:navLink }, 'Zero Fees'),
+              React.createElement(Link, { to:'/token', style:navLink }, 'Token'),
+              React.createElement(Link, { to:'/chart', style:navLink }, 'Live Chart'),
+              React.createElement(Link, { to:'/about', style:navLink }, 'About'),
+              React.createElement('a', { href:'https://x.com/PerpTropica', target:'_blank', rel:'noreferrer', style:{...navLink, opacity:0.95} }, 'Twitter')
+            )
+          )
+        )
+      );
+    }
+
+    function Footer() {
+      return (
+        React.createElement('footer', { style:{padding:'40px 20px', textAlign:'center', borderTop:'1px solid rgba(255,255,255,0.03)'} },
+          React.createElement('div', { style:{maxWidth:1200, margin:'0 auto', color:'rgba(230,247,255,0.6)'} },
+            React.createElement('div', { style:{marginBottom:8} }, React.createElement(Link, { to:'/' }, '🌴 Back to Home')),
+            React.createElement('div', null, `© ${new Date().getFullYear()} PerpTropica — Fee-Free Perp DEX`)
+          )
+        )
+      );
+    }
+
+    function ComingSoonButton({ children }) {
+      return React.createElement('button', {
+        onClick: e=>{ e.preventDefault(); alert('Coming soon — wallet connection will be live in a future release.'); },
+        style:{padding:'10px 16px', borderRadius:12, border:'none', fontWeight:700, background:'linear-gradient(90deg,#6ee7b7,#60a5fa)', color:'#012', boxShadow:'0 8px 30px rgba(96,165,250,0.12)'} 
+      }, children);
+    }
+
+    function VisualPlaceholder({ label }) {
+      return (
+        React.createElement('div', { style:{marginTop:20, borderRadius:12, overflow:'hidden', boxShadow:'0 20px 60px rgba(2,6,23,0.6)'} },
+          React.createElement('div', { style:{background:'#00121a', padding:22} },
+            React.createElement('div', { style:{color:'#6ee7b7', fontWeight:800, fontSize:16} }, label),
+            React.createElement('img', { src:`https://placehold.co/900x300?text=${encodeURIComponent(label)}`, alt:label, style:{width:'100%', marginTop:12, borderRadius:8} })
+          )
+        )
+      );
+    }
+
+    function Home() {
+      return React.createElement('main', { style:pageBackground },
+        React.createElement('div', { style:container },
+          React.createElement('h1', null, 'PerpTropica — Trade freely. Live tropically.'),
+          React.createElement(ComingSoonButton, null, 'Connect Wallet (Coming Soon 🌴)'),
+          React.createElement(VisualPlaceholder, { label:'Platform Snapshot' })
+        ),
+        React.createElement(Footer, null)
+      );
+    }
+
+    function App() {
+      return React.createElement(BrowserRouter, null,
+        React.createElement(Navbar, null),
+        React.createElement(Routes, null,
+          React.createElement(Route, { path:'/', element:React.createElement(Home, null) })
+        )
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+  </script>
+</body>
+</html>
