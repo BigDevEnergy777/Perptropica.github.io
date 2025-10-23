@@ -92,63 +92,6 @@
     .icon-label{display:none;}
   }
 </style>
-<style>
-  .ecosystem-map {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, #0a192f 0%, #091e2a 100%);
-    overflow: hidden;
-  }
-
-  .ecosystem-node {
-    position: absolute;
-    border-radius: 50%;
-    text-align: center;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-  }
-
-  .ecosystem-node:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
-  }
-
-  /* Center node */
-  .ecosystem-center {
-    width: 220px;
-    height: 220px;
-    background: linear-gradient(135deg, #00ffff, #0080ff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    padding: 20px;
-  }
-
-  /* Outer nodes */
-  .ecosystem-small {
-    width: 140px;
-    height: 140px;
-    background: linear-gradient(135deg, #00ffaa, #0066ff);
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .ecosystem-line {
-    position: absolute;
-    width: 2px;
-    background: linear-gradient(to bottom, #00ffff, #0066ff);
-    transform-origin: top;
-  }
-</style>
 </head>
 <body>
 <!-- Reactive glow overlay that reacts to scroll -->
@@ -224,56 +167,171 @@
   </div>
 </aside>
   </section>
-   <section id="ecosystem" class="section">
-  <h2>🔗 PerpTropica Ecosystem Overview</h2>
-  <div class="ecosystem-map" id="ecosystemMap">
-    <div class="ecosystem-node ecosystem-center" id="centerNode">
-      🔗 PerpTropica<br>Fee-Free Perp DEX
-    </div>
+   <section class="ecosystem" id="ecosystem" aria-label="Ecosystem">
+  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:38px;letter-spacing:1px;">
+    Ecosystem Map
+  </h2>
+
+  <svg class="bubble-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
+    <defs>
+      <!-- Glow filters -->
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="16" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Ombré gradients -->
+      <linearGradient id="grad-center" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00ffe0"/>
+        <stop offset="100%" stop-color="#007f7b"/>
+      </linearGradient>
+
+      <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#60a5fa"/>
+        <stop offset="100%" stop-color="#1e3a8a"/>
+      </linearGradient>
+
+      <linearGradient id="grad-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#facc15"/>
+        <stop offset="100%" stop-color="#92400e"/>
+      </linearGradient>
+
+      <linearGradient id="grad-pink" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f472b6"/>
+        <stop offset="100%" stop-color="#9d174d"/>
+      </linearGradient>
+
+      <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="100%" stop-color="#4c1d95"/>
+      </linearGradient>
+
+      <linearGradient id="grad-green" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#34d399"/>
+        <stop offset="100%" stop-color="#065f46"/>
+      </linearGradient>
+
+      <linearGradient id="grad-red" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f87171"/>
+        <stop offset="100%" stop-color="#7f1d1d"/>
+      </linearGradient>
+
+      <linearGradient id="grad-sky" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#38bdf8"/>
+        <stop offset="100%" stop-color="#0c4a6e"/>
+      </linearGradient>
+
+      <linearGradient id="grad-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fcd34d"/>
+        <stop offset="100%" stop-color="#78350f"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Center Node -->
+    <g class="node center">
+      <circle cx="600" cy="300" r="130" fill="url(#grad-center)" filter="url(#strongGlow)"></circle>
+      <text x="600" y="295" text-anchor="middle" font-family="'Orbitron', sans-serif"
+            font-size="30" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
+      <text x="600" y="325" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="16" fill="#00121a" font-weight="500">Trade freely. Live tropically.</text>
+    </g>
+
+    <!-- Connecting Lines -->
+    <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
+      <line x1="600" y1="300" x2="360" y2="120"></line>
+      <line x1="600" y1="300" x2="840" y2="120"></line>
+      <line x1="600" y1="300" x2="220" y2="350"></line>
+      <line x1="600" y1="300" x2="980" y2="350"></line>
+      <line x1="600" y1="300" x2="600" y2="70"></line>
+      <line x1="600" y1="300" x2="600" y2="530"></line>
+      <line x1="600" y1="300" x2="60" y2="300"></line>
+      <line x1="600" y1="300" x2="1140" y2="300"></line>
+    </g>
+
+    <!-- Nodes -->
+    <g class="node">
+      <circle cx="360" cy="120" r="65" fill="url(#grad-blue)" filter="url(#glow)"></circle>
+      <text x="360" y="118" text-anchor="middle" font-size="24">📈</text>
+      <text x="360" y="150" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="15" fill="#00121a" font-weight="600">Perpetuals</text>
+    </g>
+
+    <g class="node">
+      <circle cx="840" cy="120" r="65" fill="url(#grad-yellow)" filter="url(#glow)"></circle>
+      <text x="840" y="118" text-anchor="middle" font-size="24">🪖</text>
+      <text x="840" y="150" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="15" fill="#00121a" font-weight="600">Trenches</text>
+    </g>
+
+    <g class="node">
+      <circle cx="220" cy="350" r="58" fill="url(#grad-pink)" filter="url(#glow)"></circle>
+      <text x="220" y="348" text-anchor="middle" font-size="22">🎁</text>
+      <text x="220" y="372" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#00121a" font-weight="600">Rewards</text>
+    </g>
+
+    <g class="node">
+      <circle cx="980" cy="350" r="58" fill="url(#grad-purple)" filter="url(#glow)"></circle>
+      <text x="980" y="348" text-anchor="middle" font-size="22">🪂</text>
+      <text x="980" y="372" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#fff" font-weight="600">Airdrop</text>
+    </g>
+
+    <g class="node">
+      <circle cx="600" cy="70" r="55" fill="url(#grad-green)" filter="url(#glow)"></circle>
+      <text x="600" y="68" text-anchor="middle" font-size="20">📊</text>
+      <text x="600" y="90" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#00121a" font-weight="600">Live Chart</text>
+    </g>
+
+    <g class="node">
+      <circle cx="600" cy="530" r="55" fill="url(#grad-red)" filter="url(#glow)"></circle>
+      <text x="600" y="528" text-anchor="middle" font-size="20">💰</text>
+      <text x="600" y="550" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#fff" font-weight="600">Tokenomics</text>
+    </g>
+
+    <g class="node">
+      <circle cx="60" cy="300" r="48" fill="url(#grad-sky)" filter="url(#glow)"></circle>
+      <text x="60" y="298" text-anchor="middle" font-size="18">⚖️</text>
+      <text x="60" y="316" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#00121a" font-weight="600">Governance</text>
+    </g>
+
+    <g class="node">
+      <circle cx="1140" cy="300" r="48" fill="url(#grad-gold)" filter="url(#glow)"></circle>
+      <text x="1140" y="298" text-anchor="middle" font-size="18">🔗</text>
+      <text x="1140" y="316" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#00121a" font-weight="600">Wallets</text>
+    </g>
+  </svg>
+
+  <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
+    The <strong>PerpTropica Ecosystem</strong> connects perpetuals, trenches, rewards, airdrops, tokenomics, and governance
+    through an elegant, fee-free design — empowering degens to trade freely and live tropically.
   </div>
 </section>
 
-<script>
-  // Create ecosystem nodes dynamically
-  const nodes = [
-    { label: "Perpetuals", angle: 0 },
-    { label: "Trenches", angle: 60 },
-    { label: "Rewards", angle: 120 },
-    { label: "Airdrops", angle: 180 },
-    { label: "Community", angle: 240 },
-    { label: "Analytics", angle: 300 }
-  ];
-
-  const map = document.getElementById("ecosystemMap");
-  const center = document.getElementById("centerNode");
-  const radius = 230;
-
-  nodes.forEach(node => {
-    const el = document.createElement("div");
-    el.className = "ecosystem-node ecosystem-small";
-    el.textContent = node.label;
-
-    const angleRad = (node.angle * Math.PI) / 180;
-    const x = Math.cos(angleRad) * radius + map.clientWidth / 2 - 70;
-    const y = Math.sin(angleRad) * radius + map.clientHeight / 2 - 70;
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
-    map.appendChild(el);
-
-    // Draw connecting line
-    const line = document.createElement("div");
-    line.className = "ecosystem-line";
-    const dx = x + 70 - (map.clientWidth / 2);
-    const dy = y + 70 - (map.clientHeight / 2);
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const angleDeg = Math.atan2(dy, dx) * (180 / Math.PI);
-    line.style.height = `${distance}px`;
-    line.style.left = `${map.clientWidth / 2}px`;
-    line.style.top = `${map.clientHeight / 2}px`;
-    line.style.transform = `rotate(${angleDeg}deg)`;
-    map.appendChild(line);
-  });
-</script>
+<style>
+  .ecosystem .node circle {
+    transition: transform 0.25s ease, filter 0.3s ease;
+  }
+  .ecosystem .node:hover circle {
+    transform: scale(1.08);
+    filter: brightness(1.3) drop-shadow(0 0 12px rgba(255,255,255,0.5));
+  }
+</style>
   <!-- TOKEN -->
   <section class="content" id="token" aria-label="Token">
     <h2 style="font-family:Orbitron, monospace;color:var(--neon-teal);text-align:center;">$TROPIC — Token Utility</h2>
