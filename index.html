@@ -1,88 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PerpTropica — Fee-Free Perp DEX</title>
-<style>
-  /* Base */
-  body, html {margin:0;padding:0;font-family: 'Inter', sans-serif;color:#e6f7ff;background:linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%);min-height:100vh;}
-  a {text-decoration:none;color:#6ee7b7;}
-  h1,h2,h3 {margin:0;}
-  p {line-height:1.7;margin-top:16px;}
-
-  /* Navbar */
-  nav {position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(0,0,0,0.38), transparent);display:flex;justify-content:space-between;align-items:center;}
-  nav .logo {font-weight:800;font-size:20px;}
-  nav .links a {margin-left:12px;font-size:14px;}
-
-  /* Top Center Icons */
-  #top-center-icons {position:fixed;top:60px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:101;background:rgba(255,255,255,0.03);padding:12px 20px;border-radius:24px;box-shadow:0 8px 30px rgba(2,6,23,0.6);}
-  .icon-button {width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#6ee7b7,#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#012;cursor:pointer;box-shadow:0 4px 15px rgba(96,165,250,0.25);}
-
-  /* Container */
-  .container {max-width:1200px;margin:140px auto 80px;padding:20px;}
-  .card {background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6);margin-top:20px;}
-
-  /* Image styling */
-  .section-img {width:100%;border-radius:12px;margin-top:12px;box-shadow:0 12px 40px rgba(2,6,23,0.6);}
-</style>
+  <meta charset="UTF-8">
+  <title>PerpTropica — Fee-Free Perp DEX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+    
+    /* Global Styles */
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Inter', sans-serif; color:#e6f7ff; background:linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%); min-height:100vh;}
+    a {text-decoration:none; color:#6ee7b7;}
+    h1,h2,h3,h4 {font-family:'Orbitron', sans-serif; color:#6ee7b7;}
+    p {line-height:1.8; margin-bottom:16px; color:rgba(230,247,255,0.85);}
+    img {max-width:100%; border-radius:12px; display:block; margin-bottom:20px;}
+    .container {max-width:1200px; margin:0 auto; padding:100px 20px 80px; position:relative;}
+    
+    /* Navbar */
+    nav {position:fixed; top:0; left:0; right:0; z-index:100; background:linear-gradient(180deg, rgba(0,0,0,0.38), transparent); display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.04);}
+    .nav-links {display:flex; gap:15px;}
+    .nav-links a {padding:6px 12px; border-radius:8px; font-weight:600; transition:0.2s;}
+    .nav-links a:hover {background:rgba(110,231,183,0.1);}
+    
+    /* Top-right buttons */
+    .top-right {position:fixed; top:14px; right:20px; display:flex; gap:12px; z-index:101;}
+    .btn-wallet, .btn-profile {padding:8px 14px; border-radius:12px; border:none; font-weight:700; cursor:pointer; background:linear-gradient(90deg,#6ee7b7,#60a5fa); color:#012; box-shadow:0 8px 20px rgba(96,165,250,0.2);}
+    .btn-wallet:hover, .btn-profile:hover {opacity:0.9;}
+    
+    /* Page sections */
+    section {margin-bottom:80px;}
+    .section-title {font-size:36px; margin-bottom:24px; text-shadow:0 4px 12px rgba(0,0,0,0.3);}
+    .card {background:rgba(255,255,255,0.03); padding:20px; border-radius:12px; box-shadow:0 8px 30px rgba(2,6,23,0.6); margin-bottom:30px;}
+    
+    /* Footer */
+    footer {padding:40px 20px; text-align:center; border-top:1px solid rgba(255,255,255,0.03); margin-top:60px;}
+    
+    /* Hidden sections by default */
+    .page {display:none;}
+    .active {display:block;}
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav>
-  <div class="logo">🌴 PerpTropica</div>
-  <div class="links">
-    <a href="#home">Home</a>
-    <a href="#zerofees">Zero Fees</a>
-    <a href="#token">Token</a>
-    <a href="#chart">Live Chart</a>
-    <a href="#about">About</a>
-    <a href="https://x.com/PerpTropica" target="_blank">Twitter</a>
+  <!-- Navbar -->
+  <nav>
+    <div><a href="#" onclick="showPage('home')">🌴 PerpTropica</a></div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('zerofees')">Zero Fees</a>
+      <a href="#" onclick="showPage('token')">Token</a>
+      <a href="#" onclick="showPage('chart')">Live Chart</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="https://x.com/PerpTropica" target="_blank">Twitter</a>
+    </div>
+  </nav>
+
+  <!-- Top Right Buttons -->
+  <div class="top-right">
+    <button class="btn-wallet" onclick="alert('Coming soon — wallet connection will be live in a future release.')">Connect Wallet</button>
+    <button class="btn-profile" onclick="alert('Profile feature coming soon.')">👤</button>
   </div>
-</nav>
 
-<!-- Top Center Icons -->
-<div id="top-center-icons">
-  <div class="icon-button" title="Perpetuals">P</div>
-  <div class="icon-button" title="Trenches">T</div>
-  <div class="icon-button" title="Portfolio">💼</div>
-  <div class="icon-button" title="Rewards">R</div>
-  <div class="icon-button" title="Connect Wallet" onclick="alert('Coming soon 🌴')">W</div>
-  <div class="icon-button" title="Profile">👤</div>
-</div>
+  <!-- Pages -->
+  <div id="home" class="page active">
+    <div class="container">
+      <h1 class="section-title">PerpTropica<br><span style="font-size:28px;color:#fff;">Trade freely. Live tropically.</span></h1>
+      <p>PerpTropica is a next-generation decentralized perpetual trading platform where fees are covered by $TROPIC airdrops. Execute trades freely without worrying about traditional trading costs.</p>
+      <div class="card">
+        <h2>Platform Features</h2>
+        <ul>
+          <li>Zero trading fees, fully reimbursed by $TROPIC</li>
+          <li>Weekly airdrops fund up to 15 free trades per wallet</li>
+          <li>Decentralized perpetuals for meme coins & blue chips</li>
+          <li>Transparent and non-custodial smart contracts</li>
+        </ul>
+        <img src="https://placehold.co/900x300?text=Platform+Overview" alt="Platform Overview">
+        <img src="https://placehold.co/900x300?text=Trading+Dashboard" alt="Trading Dashboard">
+      </div>
+      <p>Engage with a platform that merges meme culture and serious derivatives trading. PerpTropica rewards active traders, builds community, and aligns incentives across the ecosystem.</p>
+    </div>
+  </div>
 
-<!-- Pages -->
-<div id="home" class="container">
-  <h1 style="font-size:48px;text-shadow:0 4px 30px rgba(6,182,183,0.12)">PerpTropica <br><span style="color:#6ee7b7;font-weight:800">Trade freely. Live tropically.</span></h1>
-  <p>PerpTropica is a next-gen fee-free perpetual DEX combining meme culture with professional derivatives trading. Execute trades without worrying about fees, receive $TROPIC airdrops, and enjoy a transparent, non-custodial experience.</p>
-  <img src="https://placehold.co/900x300?text=Home+Dashboard" class="section-img" alt="Home Dashboard">
-</div>
+  <div id="zerofees" class="page">
+    <div class="container">
+      <a href="#" onclick="showPage('home')">← Back to Home</a>
+      <h1 class="section-title">How Zero Fees Work</h1>
+      <p>All trading costs are fully covered using $TROPIC tokens. Relayers execute trades and are reimbursed from dedicated fee wallets, funded weekly via airdrops. This allows traders to keep 100% of their profits without worrying about fees.</p>
+      <div class="card">
+        <img src="https://placehold.co/900x300?text=Zero+Fees+Flowchart" alt="Zero Fees Flowchart">
+        <p>The architecture includes: PerpEngine, AirdropManager, FeeReimburser, and Relayers — each modular and upgradeable under governance constraints.</p>
+      </div>
+      <img src="https://placehold.co/900x300?text=Fee+Wallet+Dashboard" alt="Fee Wallet Dashboard">
+    </div>
+  </div>
 
-<div id="zerofees" class="container">
-  <h2>Zero Fees</h2>
-  <p>PerpTropica’s zero-fee model reimburses gas and trading fees through $TROPIC airdrops. Users sign trades via meta-transactions; relayers execute them and receive reimbursement from dedicated fee wallets.</p>
-  <img src="https://placehold.co/900x300?text=Zero+Fees+Flow" class="section-img" alt="Zero Fees Flow">
-</div>
+  <div id="token" class="page">
+    <div class="container">
+      <a href="#" onclick="showPage('home')">← Back to Home</a>
+      <h1 class="section-title">Token — $TROPIC</h1>
+      <p>$TROPIC powers fee reimbursement, governance, and ecosystem incentives. Weekly emissions reward active traders, support relayers, and provide governance powers for holders.</p>
+      <div class="card">
+        <img src="https://placehold.co/900x300?text=Tokenomics+Chart" alt="Tokenomics Chart">
+        <img src="https://placehold.co/900x300?text=Staking+and+Rewards" alt="Staking and Rewards">
+        <p>Use cases include fee reimbursement, staking, governance, and partner integrations. Transparent and auditable contracts ensure trust.</p>
+      </div>
+    </div>
+  </div>
 
-<div id="token" class="container">
-  <h2>Token — $TROPIC</h2>
-  <p>$TROPIC funds fee reimbursements, enables governance, and incentivizes active participation. Weekly airdrops, staking, and partner integrations create long-term utility and value accrual for holders.</p>
-  <img src="https://placehold.co/900x300?text=Tokenomics" class="section-img" alt="Tokenomics">
-</div>
+  <div id="chart" class="page">
+    <div class="container">
+      <a href="#" onclick="showPage('home')">← Back to Home</a>
+      <h1 class="section-title">Live Chart</h1>
+      <p>View live market data for the $TROPIC token below:</p>
+      <div class="card">
+        <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" width="100%" height="650" style="border:0; display:block;"></iframe>
+      </div>
+    </div>
+  </div>
 
-<div id="chart" class="container">
-  <h2>Live Chart</h2>
-  <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" width="100%" height="650" style="border:0;margin-top:12px;"></iframe>
-  <p>Monitor $TROPIC price in real-time. The chart provides insights into volume, liquidity, and price movement for informed trading decisions.</p>
-</div>
+  <div id="about" class="page">
+    <div class="container">
+      <a href="#" onclick="showPage('home')">← Back to Home</a>
+      <h1 class="section-title">About PerpTropica</h1>
+      <p>PerpTropica is an experimental community-first project demonstrating the viability of fee-free perpetual trading. Our roadmap includes research, development, relayer infrastructure, frontend, audits, and mainnet launch.</p>
+      <div class="card">
+        <img src="https://placehold.co/900x300?text=Team+&+Community" alt="Team and Community">
+        <img src="https://placehold.co/900x300?text=Roadmap+&+DAO" alt="Roadmap and DAO">
+        <p>Join our community on Twitter for updates and participate in the evolution of PerpTropica's fee-free ecosystem.</p>
+      </div>
+    </div>
+  </div>
 
-<div id="about" class="container">
-  <h2>About PerpTropica</h2>
-  <p>PerpTropica is community-driven, experimental, and focused on fee-free trading. Founded by DeFi and memecoin enthusiasts, it promotes transparency, security, and innovative trading mechanics.</p>
-  <img src="https://placehold.co/900x300?text=Team+and+Roadmap" class="section-img" alt="Team and Roadmap">
-</div>
+  <footer>
+    <p>© 2025 PerpTropica — Fee-Free Perp DEX</p>
+  </footer>
 
+  <script>
+    // Simple page navigation
+    function showPage(id) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0,0);
+    }
+  </script>
 </body>
 </html>
+
