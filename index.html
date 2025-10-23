@@ -7,68 +7,36 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg-1:#050010;
-  --bg-2:#0b1a2a;
-  --neon-teal:#39ffe6;
-  --neon-pink:#ff6ec7;
-  --muted:#bfeef6;
-  --card-bg: rgba(255,255,255,0.03);
-  --glass: rgba(255,255,255,0.04);
-}
-html,body{
-  height:100%;
-  margin:0;
-  font-family:"Rajdhani", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:var(--muted);
-  background: radial-gradient(circle at 10% 10%, rgba(60,10,90,0.12), transparent 8%), linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 60%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
-}
-/* reactive neon overlay */
-.neon-overlay{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  mix-blend-mode:screen;
-  background: radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(57,255,230,0.08), transparent 8%), radial-gradient(circle at calc(var(--gx,50%)+20%) calc(var(--gy,50%)+10%), rgba(255,110,199,0.06), transparent 12%);
-  transition:background 120ms linear;
-  z-index:0;
-}
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  z-index:9999;
-  padding:14px 28px;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-header .brand {display:flex;align-items:center;gap:12px;}
-header .brand .logo {font-family:"Orbitron", monospace;color:var(--neon-teal);font-weight:800;font-size:20px;letter-spacing:0.6px;}
-header .brand .tag {font-size:12px;color:rgba(191,238,246,0.75);margin-top:2px;}
-nav {display:flex;gap:12px;align-items:center;}
-.nav-link {font-weight:600;padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;transition:all .18s ease;}
-.nav-link:hover{color:var(--neon-teal);transform:translateY(-3px);box-shadow:0 8px 28px rgba(57,255,230,0.04);}
-.topright {
+  :root{
+    --bg-1:#050010;
+    --bg-2:#0b1a2a;
+    --neon-teal:#39ffe6;
+    --neon-pink:#ff6ec7;
+    --muted:#bfeef6;
+    --card-bg: rgba(255,255,255,0.03);
+    --glass: rgba(255,255,255,0.04);
+  }
+  html,body{height:100%;margin:0;font-family: "Rajdhani", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--muted); background: radial-gradient(circle at 10% 10%, rgba(60,10,90,0.12), transparent 8%), linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 60%); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; overflow-x:hidden;}
+  /* reactive neon overlay */
+  .neon-overlay{position:fixed;inset:0;pointer-events:none;mix-blend-mode:screen; background: radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(57,255,230,0.08), transparent 8%), radial-gradient(circle at calc(var(--gx,50%)+20%) calc(var(--gy,50%)+10%), rgba(255,110,199,0.06), transparent 12%); transition:background 120ms linear; z-index:0;}
+  header {position:fixed;top:20px;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:40;padding:10px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;backdrop-filter: blur(8px);box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+  .brand {display:flex;align-items:center;gap:12px;}
+  .brand .logo {font-family:"Orbitron", monospace;color:var(--neon-teal);font-weight:800;font-size:20px;letter-spacing:0.6px;}
+  .brand .tag {font-size:12px;color:rgba(191,238,246,0.75);margin-top:2px;}
+  nav {display:flex;gap:12px;align-items:center;}
+  .nav-link {font-weight:600;padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;transition:all .18s ease;}
+  .nav-link:hover{color:var(--neon-teal);transform:translateY(-3px);box-shadow:0 8px 28px rgba(57,255,230,0.04);}
+  /* top-right icon group (navigation moved as requested) */
+  .topright {
   display: flex;
   gap: 10px;
   align-items: center;
-  background: #000;
-  padding: 8px 14px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  background: #000; /* solid black background */
+  padding: 8px 14px; /* add some breathing room */
+  border-radius: 12px; /* smooth corners */
+  box-shadow: 0 0 20px rgba(0,0,0,0.6); /* subtle glow for depth */
 }
-.icon-btn {
+  .icon-btn {
   position: relative;
   width: 44px;
   height: 44px;
@@ -82,128 +50,302 @@ nav {display:flex;gap:12px;align-items:center;}
   cursor: default;
   transition: transform .18s, box-shadow .18s;
 }
-.icon-btn:hover{transform:translateY(-6px) scale(1.06);box-shadow:0 10px 30px rgba(57,255,230,0.06);}
-.icon-label {
-  position:absolute;
-  bottom:-36px;
-  left:50%;
-  transform:translateX(-50%) translateY(8px);
-  background:var(--card-bg);
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:12px;
-  color:var(--neon-pink);
-  opacity:0;
-  pointer-events:none;
-  transition:all .2s;
-  white-space:nowrap;
-  border:1px solid rgba(255,255,255,0.02);
-}
-.icon-btn:hover .icon-label{opacity:1;transform:translateX(-50%) translateY(0);color:var(--neon-teal);}
-main {position:relative;z-index:20;min-height:100vh;}
-.hero {min-height:88vh;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:center;padding:140px 40px 80px;} /* top padding for fixed header */
-.hero-left {max-width:740px;padding-left:10px;}
-.eyebrow {display:inline-block;background:linear-gradient(90deg,var(--neon-teal),var(--neon-pink));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:1px;}
-h1 {font-family:"Orbitron",sans-serif;font-size:48px;line-height:1.02;margin:10px 0;color: #e9fff9; text-shadow:0 10px 40px rgba(57,255,230,0.06);}
-p.lead {font-size:18px;color:rgba(191,238,246,0.9);margin-bottom:20px;}
-.cta-row {display:flex;gap:12px;align-items:center;margin-top:18px;}
-.btn {padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--neon-teal),var(--neon-pink));color:#02121a;font-weight:700;border:none;cursor:pointer;box-shadow:0 12px 40px rgba(57,255,230,0.08);transition:transform .14s;}
-.btn.ghost {background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
-.btn:hover{transform:translateY(-4px);}
-.right-panel {display:flex;flex-direction:column;gap:18px;align-items:stretch;}
-.panel-card {background:var(--card-bg);border-radius:14px;padding:18px;box-shadow:0 12px 40px rgba(2,6,23,0.6);min-height:140px;display:flex;flex-direction:column;justify-content:center;}
-.panel-card h4{margin:0;color:var(--neon-pink);font-size:14px;}
-.panel-card p{margin:8px 0 0 0;color:rgba(191,238,246,0.85);font-size:13px;}
-.ecosystem {padding:40px 6vw 60px;display:flex;flex-direction:column;align-items:center;gap:18px;}
-.bubble-svg{width:100%;max-width:1100px;height:auto;display:block;border-radius:12px;}
-section.content {padding:60px 6vw;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:18px;}
-.feature{background:var(--card-bg);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.5);}
-.feature h3{margin:0 0 6px 0;color:var(--neon-teal);font-size:16px;}
-.feature p{margin:0;color:rgba(191,238,246,0.9);line-height:1.6;font-size:14px;}
-.chart-wrap{display:flex;justify-content:center;padding:40px 6vw 80px;}
-.chart-card{width:100%;max-width:1100px;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(2,6,23,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
-.chart-card iframe{display:block;width:100%;height:620px;border:0;}
-.about-text{max-width:900px;margin:0 auto;color:rgba(191,238,246,0.92);line-height:1.85;font-size:15px;}
-footer{padding:40px 20px;text-align:center;color:rgba(191,238,246,0.6);border-top:1px solid rgba(255,255,255,0.03);margin-top:40px;}
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr; padding:140px 20px;}
-  header{padding:12px 16px;}
-  .topright{gap:8px;}
-  .icon-label{display:none;}
-}
+  .icon-btn:hover{transform:translateY(-6px) scale(1.06);box-shadow:0 10px 30px rgba(57,255,230,0.06);}
+  .icon-label {position:absolute;bottom:-36px;left:50%;transform:translateX(-50%) translateY(8px);background:var(--card-bg);padding:6px 10px;border-radius:8px;font-size:12px;color:var(--neon-pink);opacity:0;pointer-events:none;transition:all .2s;white-space:nowrap;border:1px solid rgba(255,255,255,0.02);}
+  .icon-btn:hover .icon-label{opacity:1;transform:translateX(-50%) translateY(0);color:var(--neon-teal);}
+  main {position:relative;z-index:20;min-height:100vh;}
+  .hero {min-height:88vh;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:center;padding:120px 40px 80px;}
+  .hero-left {max-width:740px;padding-left:10px;}
+  .eyebrow {display:inline-block;background:linear-gradient(90deg,var(--neon-teal),var(--neon-pink));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:1px;}
+  h1 {font-family:"Orbitron",sans-serif;font-size:48px;line-height:1.02;margin:10px 0;color: #e9fff9; text-shadow:0 10px 40px rgba(57,255,230,0.06);}
+  p.lead {font-size:18px;color:rgba(191,238,246,0.9);margin-bottom:20px;}
+  .cta-row {display:flex;gap:12px;align-items:center;margin-top:18px;}
+  .btn {padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--neon-teal),var(--neon-pink));color:#02121a;font-weight:700;border:none;cursor:pointer;box-shadow:0 12px 40px rgba(57,255,230,0.08);transition:transform .14s;}
+  .btn.ghost {background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
+  .btn:hover{transform:translateY(-4px);}
+  /* right panel cards */
+  .right-panel {display:flex;flex-direction:column;gap:18px;align-items:stretch;}
+  .panel-card {background:var(--card-bg);border-radius:14px;padding:18px;box-shadow:0 12px 40px rgba(2,6,23,0.6);min-height:140px;display:flex;flex-direction:column;justify-content:center;}
+  .panel-card h4{margin:0;color:var(--neon-pink);font-size:14px;}
+  .panel-card p{margin:8px 0 0 0;color:rgba(191,238,246,0.85);font-size:13px;}
+  /* bubble map area */
+  .ecosystem {padding:40px 6vw 60px;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .bubble-svg{width:100%;max-width:1100px;height:auto;display:block;border-radius:12px;}
+  /* sections */
+  section.content {padding:60px 6vw;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:18px;}
+  .feature{background:var(--card-bg);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.5);}
+  .feature h3{margin:0 0 6px 0;color:var(--neon-teal);font-size:16px;}
+  .feature p{margin:0;color:rgba(191,238,246,0.9);line-height:1.6;font-size:14px;}
+  /* live chart styling */
+  .chart-wrap{display:flex;justify-content:center;padding:40px 6vw 80px;}
+  .chart-card{width:100%;max-width:1100px;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(2,6,23,0.6);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+  .chart-card iframe{display:block;width:100%;height:620px;border:0;}
+  /* about must be long enough */
+  .about-text{max-width:900px;margin:0 auto;color:rgba(191,238,246,0.92);line-height:1.85;font-size:15px;}
+  footer{padding:40px 20px;text-align:center;color:rgba(191,238,246,0.6);border-top:1px solid rgba(255,255,255,0.03);margin-top:40px;}
+  /* responsive */
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr; padding:100px 20px;}
+    header{padding:12px 16px;}
+    .topright{gap:8px;}
+    .icon-label{display:none;}
+  }
 </style>
 </head>
 <body>
+<!-- Reactive glow overlay that reacts to scroll -->
 <div class="neon-overlay" id="neonOverlay" aria-hidden="true"></div>
-
 <header>
   <div class="brand">
     <div class="logo">PerpTropica</div>
     <div class="tag">Trade freely — live tropically</div>
   </div>
-  <div class="topright">
-    <div class="icon-btn"><span style="font-family:'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span><div class="icon-label">Connect Wallet</div></div>
-    <div class="icon-btn"><span style="font-size:18px;color:var(--neon-pink)">👤</span><div class="icon-label">Profile</div></div>
-    <div class="icon-btn"><span style="font-size:18px;color:var(--neon-teal)">Perps</span><div class="icon-label">Perpetuals</div></div>
-    <div class="icon-btn"><span style="font-size:18px;color:var(--neon-pink)">🪖</span><div class="icon-label">Trenches</div></div>
-    <div class="icon-btn"><span style="font-size:18px;color:var(--neon-teal)">🎁</span><div class="icon-label">Rewards</div></div>
-    <div class="icon-btn"><span style="font-size:18px;color:var(--neon-pink)">🪂</span><div class="icon-label">Airdrop</div></div>
-    <a class="nav-link" href="https://x.com/PerpTropica" target="_blank" rel="noopener" title="X / PerpTropica">X</a>
+  <!-- Top-right navigation / icons -->
+  <div class="topright" aria-hidden="false">
+    <!-- each icon is non-clickable; label appears on hover -->
+    <div class="icon-btn" aria-hidden="false">
+      <span style="font-family: 'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span>
+      <div class="icon-label">Connect Wallet (coming soon)</div>
+    </div>
+<div class="icon-btn" aria-hidden="false">
+  <span style="font-size:18px;color:var(--neon-pink)">👤</span>
+  <div class="icon-label">Profile</div>
+</div>
+
+<div class="icon-btn" aria-hidden="false">
+  <span style="font-size:18px;color:var(--neon-teal)">Perps</span>
+  <div class="icon-label">Perpetuals</div>
+</div>
+
+<div class="icon-btn" aria-hidden="false">
+  <span style="font-size:18px;color:var(--neon-pink)">🪖</span>
+  <div class="icon-label">Trenches</div>
+</div>
+
+<div class="icon-btn" aria-hidden="false">
+  <span style="font-size:18px;color:var(--neon-teal)">🎁</span>
+  <div class="icon-label">Rewards</div>
+</div>
+
+<div class="icon-btn" aria-hidden="false">
+  <span style="font-size:18px;color:var(--neon-pink)">🪂</span>
+  <div class="icon-label">Airdrop</div>
+</div>
+
+<a class="nav-link" href="https://x.com/PerpTropica" target="_blank" rel="noopener" title="X / PerpTropica">X</a>
   </div>
 </header>
-
 <main>
-<section class="hero" id="home">
-  <div class="hero-left">
-    <div class="eyebrow">🌴 PERPTROPICA</div>
-    <h1>Trade freely.<br><span>Live tropically.</span></h1>
-    <p class="lead">PerpTropica is the world's first fee-free perpetual DEX built for meme coins and serious futures traders. We replace trading costs with weekly $TROPIC airdrops — giving every trader the chance to execute up to 15 free trades per wallet each week.</p>
-    <div class="cta-row">
-      <button class="btn" onclick="alert('Coming soon — wallet support planned')">Connect Wallet (Coming Soon)</button>
-      <button class="btn ghost" onclick="document.getElementById('liveChartSection').scrollIntoView({behavior:'smooth'})">View Live Chart</button>
-    </div>
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-left">
+      <div class="eyebrow">🌴 PERPTROPICA</div>
+      <h1>Trade freely.<br><span>Live tropically.</span></h1>
+      <p class="lead">PerpTropica is the world's first fee-free perpetual DEX built for meme coins and serious futures traders. We replace trading costs with weekly $TROPIC airdrops — giving every trader the chance to execute up to 15 free trades per wallet each week.</p>
+  <div class="cta-row">
+    <button class="btn" onclick="alert('Coming soon — wallet support planned')">Connect Wallet (Coming Soon)</button>
+    <button class="btn ghost" onclick="document.getElementById('liveChartSection').scrollIntoView({behavior:'smooth'})">View Live Chart</button>
   </div>
-  <aside class="right-panel">
-    <div class="panel-card">
-      <h4>Live Snapshot</h4>
-      <p>Real-time market feed & token performance. Tap into the live chart below for up-to-date pricing and depth.</p>
-    </div>
-    <div class="panel-card">
-      <h4>Quick Stats</h4>
-      <p>Network: Solana (SPL) • Token: $TROPIC • Model: Fee reimbursements via airdrop</p>
-    </div>
-  </aside>
-</section>
 
-<section class="ecosystem" id="ecosystem">
-  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">Ecosystem Map</h2>
-  <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet">
-    <!-- SVG bubbles and lines go here -->
+  <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
+    <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(57,255,230,0.04), rgba(255,110,199,0.02));font-weight:700;">Zero fees</div>
+    <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,110,199,0.03), rgba(57,255,230,0.02));font-weight:700;">Weekly $TROPIC airdrops</div>
+    <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(57,255,230,0.03), rgba(255,110,199,0.02));font-weight:700;">15 free trades / wallet</div>
+  </div>
+</div>
+
+<aside class="right-panel" aria-hidden="false">
+  <div class="panel-card">
+    <h4>Live Snapshot</h4>
+    <p>Real-time market feed & token performance. Tap into the live chart below for up-to-date pricing and depth.</p>
+  </div>
+
+  <div class="panel-card">
+    <h4>Quick Stats</h4>
+    <p>Network: Solana (SPL) • Token: $TROPIC • Model: Fee reimbursements via airdrop</p>
+  </div>
+</aside>
+  </section>
+   <section class="ecosystem" id="ecosystem" aria-label="Ecosystem">
+  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">
+    Ecosystem Map
+  </h2>
+
+  <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="false" role="img">
+    <defs>
+      <!-- Enhanced glow effect -->
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="14" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <!-- Center Node -->
+    <g>
+      <circle cx="600" cy="260" r="100" fill="#39ffe6" filter="url(#strongGlow)"></circle>
+      <text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif"
+            font-size="20" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
+    </g>
+
+    <!-- Connecting Lines -->
+    <g stroke="rgba(255,255,255,0.06)" stroke-width="2">
+      <line x1="600" y1="260" x2="360" y2="120"></line>
+      <line x1="600" y1="260" x2="840" y2="120"></line>
+      <line x1="600" y1="260" x2="220" y2="320"></line>
+      <line x1="600" y1="260" x2="980" y2="320"></line>
+      <line x1="600" y1="260" x2="600" y2="40"></line>
+      <line x1="600" y1="260" x2="600" y2="500"></line>
+      <line x1="600" y1="260" x2="60" y2="260"></line>
+      <line x1="600" y1="260" x2="1140" y2="260"></line>
+    </g>
+
+    <!-- Nodes -->
+    <g class="node">
+      <circle cx="360" cy="120" r="50" fill="#60a5fa" filter="url(#glow)"></circle>
+      <text x="360" y="118" text-anchor="middle" font-size="20">📈</text>
+      <text x="360" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#00121a" font-weight="600">Perpetuals</text>
+    </g>
+
+    <g class="node">
+      <circle cx="840" cy="120" r="50" fill="#facc15" filter="url(#glow)"></circle>
+      <text x="840" y="118" text-anchor="middle" font-size="20">🪖</text>
+      <text x="840" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="14" fill="#00121a" font-weight="600">Trenches</text>
+    </g>
+
+    <g class="node">
+      <circle cx="220" cy="320" r="46" fill="#f472b6" filter="url(#glow)"></circle>
+      <text x="220" y="318" text-anchor="middle" font-size="20">🎁</text>
+      <text x="220" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#00121a" font-weight="600">Rewards</text>
+    </g>
+
+    <g class="node">
+      <circle cx="980" cy="320" r="46" fill="#a78bfa" filter="url(#glow)"></circle>
+      <text x="980" y="318" text-anchor="middle" font-size="20">🪂</text>
+      <text x="980" y="340" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="13" fill="#fff" font-weight="600">Airdrop</text>
+    </g>
+
+    <g class="node">
+      <circle cx="600" cy="40" r="40" fill="#34d399" filter="url(#glow)"></circle>
+      <text x="600" y="38" text-anchor="middle" font-size="18">📊</text>
+      <text x="600" y="58" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#00121a" font-weight="600">Live Chart</text>
+    </g>
+
+    <g class="node">
+      <circle cx="600" cy="500" r="40" fill="#f87171" filter="url(#glow)"></circle>
+      <text x="600" y="498" text-anchor="middle" font-size="18">💰</text>
+      <text x="600" y="518" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="12" fill="#fff" font-weight="600">Tokenomics</text>
+    </g>
+
+    <g class="node">
+      <circle cx="60" cy="260" r="34" fill="#38bdf8" filter="url(#glow)"></circle>
+      <text x="60" y="258" text-anchor="middle" font-size="16">⚖️</text>
+      <text x="60" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="11" fill="#00121a" font-weight="600">Governance</text>
+    </g>
+
+    <g class="node">
+      <circle cx="1140" cy="260" r="34" fill="#fcd34d" filter="url(#glow)"></circle>
+      <text x="1140" y="258" text-anchor="middle" font-size="16">🔗</text>
+      <text x="1140" y="274" text-anchor="middle" font-family="'Rajdhani', sans-serif"
+            font-size="11" fill="#00121a" font-weight="600">Wallet link</text>
+    </g>
   </svg>
-</section>
 
-<section class="content" id="liveChartSection">
-  <h2 style="text-align:center;font-family:'Orbitron',sans-serif;color:#fff;">Live $TROPIC Chart</h2>
-  <div class="chart-wrap">
-    <div class="chart-card">
-      <iframe src="https://solanart.io/token/replace_with_token_id/chart" title="Live $TROPIC chart"></iframe>
-    </div>
+  <div style="max-width:980px;text-align:center;color:rgba(191,238,246,0.85);font-size:15px;line-height:1.6;">
+    The <strong>PerpTropica Ecosystem</strong> connects perpetuals, trenches, rewards, airdrops, and tokenomics into a unified network of DeFi innovation.
   </div>
 </section>
+  <!-- TOKEN -->
+  <section class="content" id="token" aria-label="Token">
+    <h2 style="font-family:Orbitron, monospace;color:var(--neon-teal);text-align:center;">$TROPIC — Token Utility</h2>
+    <p style="max-width:920px;margin:0 auto;color:rgba(191,238,246,0.9);">$TROPIC is an SPL utility token used to reimburse fee wallets, incentivize relayers, and power community governance. Initial distributions seed liquidity and reward early contributors; weekly emissions are tuned to cover expected fee volume. Governance can introduce burns of unclaimed airdrops to help maintain token scarcity, or vote to modify emission schedules as the protocol grows.</p>
+  </section>
+  <!-- LIVE CHART -->
+  <section class="chart-wrap" id="liveChartSection" aria-label="Live Chart">
+    <div class="chart-card">
+      <iframe title="PerpTropica Live Chart" src="https://dexscreener.com/solana/Aj8VSASJArUW3h9gkBKctzjGRDzUTvNQ2rzgcfiGKtu"></iframe>
+    </div>
+  </section>
+  <!-- ABOUT (>=300 chars) -->
+  <section class="content" id="about" aria-label="About">
+    <h2 style="font-family:Orbitron, monospace;color:var(--neon-pink);text-align:center;">About PerpTropica</h2>
+    <div class="about-text">
+      PerpTropica is an experimental, community-first decentralized exchange focused on enabling fee-free perpetual trading for meme coins and larger markets. The protocol’s distinctive offering is its reimbursement architecture: weekly $TROPIC airdrops fund dedicated fee wallets which automatically cover relayer and execution costs, allowing traders to operate without paying direct on-chain fees. The platform emphasizes transparency, on-chain governance, and a safety-first development roadmap including audits, timelocks, and a bug bounty program. PerpTropica aims to align incentives across traders, builders, and token holders so that active participants benefit directly from the ecosystem’s growth and utility.
+    </div>
+  </section>
 </main>
-
 <footer>
-  <p> 2025 PerpTropica. All rights reserved.</p>
-</footer>
+  <div>🌴 PerpTropica — Trade freely. Live tropically.</div>
+  
+  <div style="margin-top:12px;">
+    <a href="https://x.com/PerpTropica" target="_blank" rel="noopener"
+       style="color:var(--neon-teal);text-decoration:none;font-weight:700;margin-right:20px;">
+       Follow on X
+    </a>
 
+    <a href="https://github.com/BigDevEnergy777/PerpTropica" target="_blank" rel="noopener" class="footer-icon" style="vertical-align:middle;">
+      <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.57 7.57 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div style="margin-top:12px;"> 2025 PerpTropica — Fee-Free Perp DEX</div>
+</footer>
 <script>
-const neonOverlay = document.getElementById('neonOverlay');
-document.addEventListener('mousemove', e => {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-  neonOverlay.style.setProperty('--gx', x + '%');
-  neonOverlay.style.setProperty('--gy', y + '%');
+/* Reactive neon overlay responding to scroll position */
+(function(){
+  const overlay = document.getElementById('neonOverlay');
+  function updateOverlay(){
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? window.scrollY / docH : 0;
+    // map scroll to gradient center coordinates
+    const gx = 30 + (pct * 40); // from 30% to ~70%
+    const gy = 30 + (pct * 40);
+    overlay.style.setProperty('--gx', gx + '%');
+    overlay.style.setProperty('--gy', gy + '%');
+  }
+  window.addEventListener('scroll', updateOverlay, {passive:true});
+  window.addEventListener('load', updateOverlay);
+})();
+
+/* Smooth hash navigation fallback */
+(function(){
+  function onHash(){
+    const h = location.hash || '#home';
+    const el = document.querySelector(h);
+    if(el){
+      // scroll so header doesn't overlap
+      const headerHeight = document.querySelector('header').offsetHeight + 18;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+      window.scrollTo({top, behavior:'smooth'});
+    }
+  }
+  window.addEventListener('hashchange', onHash);
+  // anchor links in hero call scroll via buttons already
+})();
+
+/* Accessibility: show icon labels for keyboard focus as well */
+document.querySelectorAll('.icon-btn').forEach(btn=>{
+  btn.addEventListener('focus', ()=> btn.querySelector('.icon-label').style.opacity = '1');
+  btn.addEventListener('blur', ()=> btn.querySelector('.icon-label').style.opacity = '');
 });
 </script>
 </body>
