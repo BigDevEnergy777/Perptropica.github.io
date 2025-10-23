@@ -136,13 +136,14 @@ footer{padding:40px 20px;text-align:center;color:rgba(191,238,246,0.6);border-to
 </head>
 <body>
 <div class="neon-overlay" id="neonOverlay" aria-hidden="true"></div>
+
 <header>
   <div class="brand">
     <div class="logo">PerpTropica</div>
     <div class="tag">Trade freely — live tropically</div>
   </div>
-  <div class="topright" aria-hidden="false">
-    <div class="icon-btn"><span style="font-family:'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span><div class="icon-label">Connect Wallet (coming soon)</div></div>
+  <div class="topright">
+    <div class="icon-btn"><span style="font-family:'Orbitron', monospace; font-weight:800; color:var(--neon-teal);">🔗</span><div class="icon-label">Connect Wallet</div></div>
     <div class="icon-btn"><span style="font-size:18px;color:var(--neon-pink)">👤</span><div class="icon-label">Profile</div></div>
     <div class="icon-btn"><span style="font-size:18px;color:var(--neon-teal)">Perps</span><div class="icon-label">Perpetuals</div></div>
     <div class="icon-btn"><span style="font-size:18px;color:var(--neon-pink)">🪖</span><div class="icon-label">Trenches</div></div>
@@ -151,138 +152,52 @@ footer{padding:40px 20px;text-align:center;color:rgba(191,238,246,0.6);border-to
     <a class="nav-link" href="https://x.com/PerpTropica" target="_blank" rel="noopener" title="X / PerpTropica">X</a>
   </div>
 </header>
+
 <main>
 <section class="hero" id="home">
-<div class="hero-left">
-<div class="eyebrow">🌴 PERPTROPICA</div>
-<h1>Trade freely.<br><span>Live tropically.</span></h1>
-<p class="lead">PerpTropica is the world's first fee-free perpetual DEX built for meme coins and serious futures traders. We replace trading costs with weekly $TROPIC airdrops — giving every trader the chance to execute up to 15 free trades per wallet each week.</p>
-<div class="cta-row">
-<button class="btn" onclick="alert('Coming soon — wallet support planned')">Connect Wallet (Coming Soon)</button>
-<button class="btn ghost" onclick="document.getElementById('liveChartSection').scrollIntoView({behavior:'smooth'})">View Live Chart</button>
-</div>
-<div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
-  <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(57,255,230,0.04), rgba(255,110,199,0.02));font-weight:700;">Zero fees</div>
-  <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,110,199,0.03), rgba(57,255,230,0.02));font-weight:700;">Weekly $TROPIC airdrops</div>
-  <div style="padding:10px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(57,255,230,0.03), rgba(255,110,199,0.02));font-weight:700;">15 free trades / wallet</div>
-</div>
-</div>
-
-<aside class="right-panel">
-<div class="panel-card">
-<h4>Live Snapshot</h4>
-<p>Real-time market feed & token performance. Tap into the live chart below for up-to-date pricing and depth.</p>
-</div>
-<div class="panel-card">
-<h4>Quick Stats</h4>
-<p>Network: Solana (SPL) • Token: $TROPIC • Model: Fee reimbursements via airdrop</p>
-</div>
-</aside>
+  <div class="hero-left">
+    <div class="eyebrow">🌴 PERPTROPICA</div>
+    <h1>Trade freely.<br><span>Live tropically.</span></h1>
+    <p class="lead">PerpTropica is the world's first fee-free perpetual DEX built for meme coins and serious futures traders. We replace trading costs with weekly $TROPIC airdrops — giving every trader the chance to execute up to 15 free trades per wallet each week.</p>
+    <div class="cta-row">
+      <button class="btn" onclick="alert('Coming soon — wallet support planned')">Connect Wallet (Coming Soon)</button>
+      <button class="btn ghost" onclick="document.getElementById('liveChartSection').scrollIntoView({behavior:'smooth'})">View Live Chart</button>
+    </div>
+  </div>
+  <aside class="right-panel">
+    <div class="panel-card">
+      <h4>Live Snapshot</h4>
+      <p>Real-time market feed & token performance. Tap into the live chart below for up-to-date pricing and depth.</p>
+    </div>
+    <div class="panel-card">
+      <h4>Quick Stats</h4>
+      <p>Network: Solana (SPL) • Token: $TROPIC • Model: Fee reimbursements via airdrop</p>
+    </div>
+  </aside>
 </section>
 
 <section class="ecosystem" id="ecosystem">
-<h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">Ecosystem Map</h2>
-<svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet">
-<defs>
-<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-<feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
-<filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
-<feGaussianBlur stdDeviation="14" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
-</defs>
-
-<!-- Center Node -->
-<g>
-<circle cx="600" cy="260" r="110" fill="#39ffe6" filter="url(#strongGlow)"></circle>
-<text x="600" y="266" text-anchor="middle" font-family="'Orbitron', sans-serif" font-size="22" fill="#02121a" font-weight="800">🌴 PerpTropica</text>
-</g>
-
-<!-- Connecting Lines -->
-<g stroke="rgba(255,255,255,0.06)" stroke-width="2">
-<line x1="600" y1="260" x2="360" y2="120"></line>
-<line x1="600" y1="260" x2="840" y2="120"></line>
-<line x1="600" y1="260" x2="220" y2="320"></line>
-<line x1="600" y1="260" x2="980" y2="320"></line>
-<line x1="600" y1="260" x2="600" y2="40"></line>
-<line x1="600" y1="260" x2="600" y2="500"></line>
-<line x1="600" y1="260" x2="60" y2="260"></line>
-<line x1="600" y1="260" x2="1140" y2="260"></line>
-</g>
-
-<!-- Nodes -->
-<g class="node">
-<circle cx="360" cy="120" r="52" fill="#60a5fa" filter="url(#glow)"></circle>
-<text x="360" y="118" text-anchor="middle" font-size="20">📈</text>
-<text x="360" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="14" fill="#00121a" font-weight="600">Perpetuals</text>
-</g>
-
-<g class="node">
-<circle cx="840" cy="120" r="52" fill="#facc15" filter="url(#glow)"></circle>
-<text x="840" y="118" text-anchor="middle" font-size="20">🪖</text>
-<text x="840" y="142" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="14" fill="#00121a" font-weight="600">Trenches</text>
-</g>
-
-<g class="node">
-<circle cx="220" cy="320" r="48" fill="#f472b6" filter="url(#glow)"></circle>
-<text x="220" y="318" text-anchor="middle" font-size="20">🎁</text>
-<text x="220" y="342" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="13" fill="#00121a" font-weight="600">Rewards</text>
-</g>
-
-<g class="node">
-<circle cx="980" cy="320" r="48" fill="#a78bfa" filter="url(#glow)"></circle>
-<text x="980" y="318" text-anchor="middle" font-size="20">🪂</text>
-<text x="980" y="342" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="13" fill="#fff" font-weight="600">Airdrop</text>
-</g>
-
-<g class="node">
-<circle cx="600" cy="40" r="42" fill="#34d399" filter="url(#glow)"></circle>
-<text x="600" y="38" text-anchor="middle" font-size="18">📊</text>
-<text x="600" y="62" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">Analytics</text>
-</g>
-
-<g class="node">
-<circle cx="600" cy="500" r="42" fill="#f87171" filter="url(#glow)"></circle>
-<text x="600" y="498" text-anchor="middle" font-size="18">💎</text>
-<text x="600" y="522" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">Liquidity</text>
-</g>
-
-<g class="node">
-<circle cx="60" cy="260" r="40" fill="#fbbf24" filter="url(#glow)"></circle>
-<text x="60" y="258" text-anchor="middle" font-size="16">🛠️</text>
-<text x="60" y="282" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">Dev Tools</text>
-</g>
-
-<g class="node">
-<circle cx="1140" cy="260" r="40" fill="#38bdf8" filter="url(#glow)"></circle>
-<text x="1140" y="258" text-anchor="middle" font-size="16">💱</text>
-<text x="1140" y="282" text-anchor="middle" font-family="'Rajdhani', sans-serif" font-size="12" fill="#00121a" font-weight="600">Swap</text>
-</g>
-</svg>
+  <h2 style="color:#fff;font-family:'Orbitron',sans-serif;text-align:center;font-size:36px;letter-spacing:1px;">Ecosystem Map</h2>
+  <svg class="bubble-svg" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet">
+    <!-- SVG bubbles and lines go here -->
+  </svg>
 </section>
 
 <section class="content" id="liveChartSection">
-<h2 style="text-align:center;font-family:'Orbitron',sans-serif;color:#fff;">Live $TROPIC Chart</h2>
-<div class="chart-wrap">
-<div class="chart-card">
-<iframe src="https://solanart.io/token/replace_with_token_id/chart" title="Live $TROPIC chart"></iframe>
-</div>
-</div>
+  <h2 style="text-align:center;font-family:'Orbitron',sans-serif;color:#fff;">Live $TROPIC Chart</h2>
+  <div class="chart-wrap">
+    <div class="chart-card">
+      <iframe src="https://solanart.io/token/replace_with_token_id/chart" title="Live $TROPIC chart"></iframe>
+    </div>
+  </div>
 </section>
+</main>
 
 <footer>
-<p> 2025 PerpTropica. All rights reserved.</p>
+  <p> 2025 PerpTropica. All rights reserved.</p>
 </footer>
+
 <script>
-/* Neon reactive overlay */
 const neonOverlay = document.getElementById('neonOverlay');
 document.addEventListener('mousemove', e => {
   const x = (e.clientX / window.innerWidth) * 100;
