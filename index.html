@@ -1,112 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PerpTropica — Fee-Free Perp DEX</title>
-
-<!-- Fonts & styles -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%); color: #e6f7ff; overflow-x: hidden; }
-  a { color: #6ee7b7; text-decoration: none; }
-  header { position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 12px 20px; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-  header nav a { margin-left: 12px; font-weight: 600; font-size: 14px; }
-  main { padding: 120px 20px 60px; max-width: 1200px; margin: 0 auto; }
-  section { margin-bottom: 80px; }
-  h1, h2, h3 { font-weight: 800; }
-  h1 { font-size: 48px; line-height: 1.2; text-shadow: 0 4px 30px rgba(6,182,183,0.12); }
-  h2 { font-size: 32px; margin-bottom: 12px; }
-  p { line-height: 1.7; margin-top: 12px; color: rgba(230,247,255,0.85); }
-  button { padding: 10px 16px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; background: linear-gradient(90deg,#6ee7b7,#60a5fa); color: #012; box-shadow: 0 8px 30px rgba(96,165,250,0.12); }
-  .card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; box-shadow: 0 8px 30px rgba(2,6,23,0.6); margin-top: 24px; }
-  .img-card { width: 100%; border-radius: 8px; margin-top: 12px; }
-  footer { text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.03); color: rgba(230,247,255,0.6); }
-  .back-home { margin-bottom: 16px; display: inline-block; }
-  iframe { border: 0; display: block; width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(2,6,23,0.6); margin-top: 18px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerpTropica — Fee-Free Perp DEX</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      color: #e6f7ff;
+      background: linear-gradient(180deg, #00121a 0%, #032a36 35%, #063b52 60%, #0b6b7a 100%);
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: #6ee7b7; }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5), transparent);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav .links a {
+      margin-left: 16px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      background: rgba(255,255,255,0.03);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+    h1, h2 { margin: 0 0 20px; }
+    h1 { font-size: 48px; line-height: 1.1; text-shadow: 0 4px 20px rgba(6,182,183,0.12); }
+    h2 { font-size: 32px; }
+    p { line-height: 1.8; margin-top: 16px; color: rgba(230,247,255,0.87); }
+    .card {
+      background: rgba(255,255,255,0.03);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      margin-bottom: 20px;
+    }
+    .visual img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+    .connect-wallet {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: none;
+      font-weight: 700;
+      background: linear-gradient(90deg,#6ee7b7,#60a5fa);
+      color: #012;
+      box-shadow: 0 8px 30px rgba(96,165,250,0.12);
+      cursor: pointer;
+      z-index: 110;
+    }
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      margin-top: 60px;
+    }
+    footer div { color: rgba(230,247,255,0.6); }
+    iframe { border:0; display:block; border-radius:12px; box-shadow:0 20px 60px rgba(2,6,23,0.6); }
+    .hidden { display: none; }
+  </style>
 </head>
 <body>
 
-<header>
-  <a href="#home" style="font-size:20px;">🌴 PerpTropica</a>
-  <nav>
+<nav>
+  <div class="logo">🌴 PerpTropica</div>
+  <div class="links">
     <a href="#home">Home</a>
     <a href="#zerofees">Zero Fees</a>
     <a href="#token">Token</a>
     <a href="#chart">Live Chart</a>
     <a href="#about">About</a>
     <a href="https://x.com/PerpTropica" target="_blank">Twitter</a>
-  </nav>
-</header>
+  </div>
+</nav>
 
-<main>
-  <!-- Home Section -->
-  <section id="home">
-    <h1>PerpTropica<br><span style="color:#6ee7b7;">Trade freely. Live tropically.</span></h1>
-    <button onclick="alert('Coming soon — wallet connection will be live in a future release.')">Connect Wallet (Coming Soon 🌴)</button>
-    <div class="card">
-      <h2>Platform Snapshot</h2>
-      <p>PerpTropica is the world’s first decentralized fee-free perpetual DEX, combining meme coin culture with serious derivatives trading.</p>
-      <ul>
-        <li>Relayer-backed fee-free trades</li>
-        <li>FeeReimburser & AirdropManager on-chain</li>
-        <li>Planned audits, timelocks & multisig admin</li>
-      </ul>
-      <img src="https://placehold.co/900x300?text=Ecosystem+Diagram" alt="Ecosystem Diagram" class="img-card">
-    </div>
-    <div class="card">
-      <h2>Live Chart Demo</h2>
-      <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" height="500"></iframe>
-    </div>
-  </section>
+<button class="connect-wallet" onclick="alert('Coming soon — wallet connection will be live in a future release.')">Connect Wallet 🌴</button>
 
-  <!-- Zero Fees Section -->
-  <section id="zerofees">
-    <a href="#home" class="back-home">← Back to Home</a>
+<!-- Pages -->
+<div class="container">
+  <div id="home" class="page">
+    <h1>PerpTropica<br/><span style="color:#6ee7b7;font-weight:800;">Trade freely. Live tropically.</span></h1>
+    <div class="card visual">
+      <div>Platform Overview</div>
+      <img src="https://placehold.co/900x300?text=PerpTropica+Ecosystem" alt="Ecosystem">
+    </div>
+    <div class="card visual">
+      <div>Engaging the Community</div>
+      <img src="https://placehold.co/900x300?text=Community+Engagement" alt="Community">
+    </div>
+    <p>PerpTropica is the first fee-free PerpDEX for meme coins and derivatives. Using $TROPIC, traders receive weekly reimbursements, allowing up to 15 free trades per wallet per week. Dive into zero-fee trading with transparency, decentralization, and a tropical vibe. Explore each section to learn more about the token, fee mechanics, and the platform.</p>
+  </div>
+
+  <div id="zerofees" class="page hidden">
+    <a href="#home">← Back to Home</a>
     <h2>How Zero Fees Work</h2>
-    <p>PerpTropica removes trading fees for users by reimbursing execution costs via $TROPIC. Meta-transactions are executed by relayers, and all costs are transparent and auditable on-chain.</p>
-    <div class="card">
-      <img src="https://placehold.co/900x300?text=Zero+Fees+Flow" alt="Zero Fees Flow" class="img-card">
-      <p>Relayers submit trades and are reimbursed from weekly airdrops. Governance ensures sustainable emissions and adjustable free trade caps.</p>
+    <div class="card visual">
+      <div>Zero Fees Flow</div>
+      <img src="https://placehold.co/900x300?text=Zero+Fees+Flow" alt="Zero Fees Flow">
     </div>
-  </section>
+    <p>All trading costs are covered by $TROPIC airdrops. Users submit trades via the frontend, relayers execute them on-chain, and FeeReimburser reimburses relayers using allocated $TROPIC. Wallets are capped for 15 free trades per week. Governance can adjust emissions, free trade caps, and deflationary mechanisms. The system ensures full transparency and sustainable zero-fee trading.</p>
+  </div>
 
-  <!-- Token Section -->
-  <section id="token">
-    <a href="#home" class="back-home">← Back to Home</a>
-    <h2>Token — $TROPIC</h2>
-    <p>$TROPIC powers fee reimbursements, governance, staking programs, and partner integrations. Weekly airdrops incentivize active traders and liquidity providers.</p>
-    <div class="card">
-      <img src="https://placehold.co/900x300?text=Tokenomics+Chart" alt="Tokenomics Chart" class="img-card">
-      <p>Governance allows adjustments to emissions, free trade caps, and deflationary mechanics like burning unclaimed airdrops.</p>
+  <div id="token" class="page hidden">
+    <a href="#home">← Back to Home</a>
+    <h2>$TROPIC Token</h2>
+    <div class="card visual">
+      <div>Tokenomics</div>
+      <img src="https://placehold.co/900x300?text=Tokenomics+Chart" alt="Tokenomics">
     </div>
-  </section>
+    <div class="card visual">
+      <div>Use Cases</div>
+      <img src="https://placehold.co/900x300?text=Token+Utility" alt="Token Utility">
+    </div>
+    <p>$TROPIC powers fee reimbursements, governance, staking programs, and ecosystem incentives. Weekly airdrops fund fee wallets, governance decides emissions, and strategic partnerships expand token utility. Transparency is maintained with open-source contracts and upcoming audits.</p>
+  </div>
 
-  <!-- Live Chart Section -->
-  <section id="chart">
-    <a href="#home" class="back-home">← Back to Home</a>
+  <div id="chart" class="page hidden">
+    <a href="#home">← Back to Home</a>
     <h2>Live Chart</h2>
-    <p>Demo chart for $TROPIC. Future releases will include enriched analytics and on-site trade feeds.</p>
-    <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" height="500"></iframe>
-  </section>
+    <p>Track $TROPIC token live market data below:</p>
+    <iframe src="https://dexscreener.com/solana/6jRuRhjtXgMAF1Z4nQuu1oaCxNu2wLiqVt7L64Xpump" width="100%" height="650"></iframe>
+  </div>
 
-  <!-- About Section -->
-  <section id="about">
-    <a href="#home" class="back-home">← Back to Home</a>
+  <div id="about" class="page hidden">
+    <a href="#home">← Back to Home</a>
     <h2>About PerpTropica</h2>
-    <p>PerpTropica is a community-first fee-free perpetual trading platform. It lowers trading costs while maintaining security, transparency, and governance-driven evolution.</p>
-    <div class="card">
-      <img src="https://placehold.co/900x300?text=Team+and+Community" alt="Team & Community" class="img-card">
-      <p>Roadmap: Research → Contracts → Backend → Frontend → Audits → Mainnet launch & airdrop events. Join the community on Twitter for updates!</p>
+    <div class="card visual">
+      <div>Team & Roadmap</div>
+      <img src="https://placehold.co/900x300?text=Team+and+Roadmap" alt="Team & Roadmap">
     </div>
-  </section>
-</main>
+    <div class="card visual">
+      <div>Community & Vision</div>
+      <img src="https://placehold.co/900x300?text=Community+Vision" alt="Community Vision">
+    </div>
+    <p>PerpTropica is an experimental DeFi project focused on zero-fee perpetual trading. The roadmap includes contract development, relayer infrastructure, frontend experiences, audits, and mainnet launch. The long-term vision includes a DAO managing emissions and treasury allocations, ensuring the community has on-chain control as the protocol evolves.</p>
+  </div>
+</div>
 
 <footer>
-  © 2025 PerpTropica — Fee-Free Perp DEX
+  <div>© <span id="year"></span> PerpTropica — Fee-Free Perp DEX</div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function showPage(hash) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.add('hidden'));
+    const target = document.querySelector(hash);
+    if(target) target.classList.remove('hidden');
+    else document.querySelector('#home').classList.remove('hidden');
+  }
+
+  window.addEventListener('hashchange', () => showPage(location.hash));
+  window.addEventListener('load', () => showPage(location.hash || '#home'));
+</script>
 
 </body>
 </html>
